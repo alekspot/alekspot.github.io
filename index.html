@@ -136,7 +136,7 @@
 
 			$('.menu-toggle_header').click(function(e){
 				e.stopPropagation();
-				$('.menu-toggle_header').toggleClass('active');
+				$(this).toggleClass('active');
 				$('.header__menu').slideToggle(300, function () {
 					if($(this).css('display')==='none'){
 						$(this).removeAttr('style');
@@ -146,7 +146,7 @@
 
 			$('.menu-toggle_catalog').click(function(e){
 				e.stopPropagation();
-				$('.menu-toggle_catalog').toggleClass('active');
+				$(this).toggleClass('active');
 				$('.catalog__menu').slideToggle(300, function () {
 					if($(this).css('display')==='none'){
 						$(this).removeAttr('style');
