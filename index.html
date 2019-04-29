@@ -107,6 +107,9 @@
 						singleMode: true,
 						gutter:'.gutter-width'
 					});
+					$grid.imagesLoaded().progress( function() {
+					    $grid.masonry();
+					});
 				</script>
 			<button class="catalog__button">LOAD MORE</button>	
 			</div>
