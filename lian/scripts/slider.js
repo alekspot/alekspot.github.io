@@ -9,7 +9,8 @@ function DoSlider() {
             var autoPlay;
             var timer;
             var currentSlide = 0;
-
+            var enubled = true;
+            
             function changeSliderLink() {
 
                 if(currentSlide > slide.length-1){
@@ -175,9 +176,31 @@ function DoSlider() {
             });
 
             function startAutoPlay() {
-                autoPlay = setInterval(MoveNext,1000);
+                autoPlay = setInterval(MoveNext,3000);
             }
             // startAutoPlay();
 
+            //Если вкладка не активна то прекратить работу слайдера
+            var _handleVisibilityChange = function () {
+              if (document.visibilityState === "hidden") {
+               clearInterval(autoPlay);
+              } else {
+               startAutoPlay();
+              }
+            }
+            document.addEventListener('visibilitychange', _handleVisibilityChange, false);
+
+            
+            $(document).on('scroll', function() {
+                height = slider.offset().top + slider.height();
+                if($(window).scrollTop()>height) {
+                    clearInterval(autoPlay);
+                    enubled = true;
+                }
+                else if($(window).scrollTop()<height) {
+                    if(enubled) startAutoPlay();
+                    enubled = false;
+                }
+            });
         
 }
