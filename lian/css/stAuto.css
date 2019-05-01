@@ -501,7 +501,8 @@
 
 @media (max-width: 480px){
 	.slider__nav {
-		display: none;
+		/*display: none;*/
+		bottom:7%;
 	}
 }
 
