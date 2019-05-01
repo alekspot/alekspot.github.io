@@ -101,15 +101,15 @@
 					<img class="catalog__item catalog__item_percentSize" src="./img/10.png" alt="">
 				</div>
 				<script>
-					var $grid = $('.catalog__items').masonry({
+					var $grid = $('.catalog__items').masonry();
+					$grid.imagesLoaded().progress( function() {
+					    $grid.masonry({
 						itemSelector: '.catalog__item',
 						percentPosition: true,
 						columnWidth: '.catalog__item_percentSize',
 						singleMode: true,
 						gutter:'.gutter-width'
 					});
-					$grid.imagesLoaded().progress( function() {
-					    $grid.masonry();
 					});
 				</script>
 			<button class="catalog__button">LOAD MORE</button>	
