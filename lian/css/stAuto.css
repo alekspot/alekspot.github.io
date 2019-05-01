@@ -167,7 +167,6 @@
 	    -ms-flex-align: center;
 	        align-items: center;
 	height: 67vh;
-
 	text-transform: uppercase;
 }
 .slide__title {
@@ -459,6 +458,13 @@
 	}
 }
 
+@media (max-width: 600px){
+	
+	.slider {
+		background: url("../img/bgsm.png") no-repeat;
+		background-size: cover;
+	}
+}
 
 .slider__slides {
 	position: relative;
