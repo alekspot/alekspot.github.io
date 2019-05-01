@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<title>Slider</title>
+	<title>SliderNew</title>
 	<script src="jquery-3.3.1.min.js"></script>
 </head>
 <style>
@@ -58,35 +58,41 @@
 	}
 </style>
 <body>
-	<div class="slider">
+	<div class="slider s1">
 		<div class="slider__slides slider__slides_animated">
 			<div class="slider__item red">1</div>
 			<div class="slider__item blue">2</div>
 			<div class="slider__item green">3</div>
-			<div class="slider__item green">4</div>
-			<div class="slider__item green">5</div>
-			<div class="slider__item green">6</div>
-			<div class="slider__item green">7</div>
-			<div class="slider__item green">8</div>
-			<div class="slider__item green">9</div>
-			<div class="slider__item green">10</div>
-			<div class="slider__item green">11</div>
-			<div class="slider__item green">12</div>
-			<div class="slider__item green">13</div>
-			<div class="slider__item green">14</div>
-			<div class="slider__item green">15</div>
-			<div class="slider__item green">16</div>
 		</div>
 		<div class="slider__nav"></div>
 		<button class="prev">Назад</button>
 		<button class="next">Вперед</button>
 	</div>
+	<div class="slider s2">
+		<div class="slider__slides slider__slides_animated">
+			<div class="slider__item red">1</div>
+			<div class="slider__item blue">2</div>
+			<div class="slider__item green">3</div>
+			<div class="slider__item red">4</div>
+			<div class="slider__item blue">5</div>
+		</div>
+		<div class="slider__nav"></div>
+		<button class="prev">Назад</button>
+		<button class="next">Вперед</button>
+	</div>
+
 	<script>
 		$(function () {
-			var slider = $(".slider__slides");
-			var slide = $(".slider__item");
-			var prevBtn = $(".prev");
-			var nextBtn = $(".next");
+			EnableSlider(".s1");
+			EnableSlider(".s2");
+
+			function EnableSlider(elem) {
+			var sliderWrap = $(elem);
+			var slider = sliderWrap.find(".slider__slides");
+			var slide = slider.find(".slider__item");
+			var sliderNavigation = sliderWrap.find(".slider__nav");
+			var prevBtn = sliderWrap.find(".prev");
+			var nextBtn = sliderWrap.find(".next");
 			var slidesArr = [];
 			var triggerSlide = 0;
 			var rangeIndex = 0;
@@ -99,15 +105,15 @@
 
 				if(currentSlide > slide.length-1){
 					currentSlide = 0;
-					$(".slider__link").eq(slide.length-1).removeClass("slider__link_active");
+					$(elem +" .slider__link").eq(slide.length-1).removeClass("slider__link_active");
 				}
 				if(currentSlide<0){
 					currentSlide = slide.length-1;
-					$(".slider__link").eq(0).removeClass("slider__link_active");
+					$(elem +" .slider__link").eq(0).removeClass("slider__link_active");
 				}
-				$(".slider__link").eq(currentSlide).toggleClass("slider__link_active");
-				$(".slider__link").eq(currentSlide-1).removeClass("slider__link_active");
-				$(".slider__link").eq(currentSlide+1).removeClass("slider__link_active");
+				$(elem + " .slider__link").eq(currentSlide).toggleClass("slider__link_active");
+				$(elem + " .slider__link").eq(currentSlide-1).removeClass("slider__link_active");
+				$(elem + " .slider__link").eq(currentSlide+1).removeClass("slider__link_active");
 
 			}
 
@@ -118,7 +124,7 @@
 					index:i
 				};
 				$("<div>", {class: "slider__link"})
-						.appendTo(".slider__nav")
+						.appendTo(sliderNavigation)
 						.attr("data-number",i)
 						.click(function () {
 							var current = $(this).data("number");
@@ -262,7 +268,7 @@
 			function startAutoPlay() {
 				autoPlay = setInterval(MoveNext,1000);
 			}
-			
+			startAutoPlay();
 			var _handleVisibilityChange = function () {
               if (document.visibilityState === "hidden") {
                clearInterval(autoPlay);
@@ -284,7 +290,7 @@
                     enubled = false;
                 }
             });
-
+			}
 		});
 	</script>
 </body>
