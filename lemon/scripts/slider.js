@@ -181,26 +181,9 @@ function DoSlider() {
             // startAutoPlay();
 
             //Если вкладка не активна то прекратить работу слайдера
-            var _handleVisibilityChange = function () {
-              if (document.visibilityState === "hidden") {
-               clearInterval(autoPlay);
-              } else {
-               startAutoPlay();
-              }
-            }
-            document.addEventListener('visibilitychange', _handleVisibilityChange, false);
+            
 
             
-            $(document).on('scroll', function() {
-                height = slider.offset().top + slider.height();
-                if($(window).scrollTop() > height||$(window).scrollTop() < slider.offset().top) {
-                    clearInterval(autoPlay);
-                    enubled = true;
-                }
-                else if($(window).scrollTop() > $(window).scrollTop() - slider.height()) {
-                    if(enubled) startAutoPlay();
-                    enubled = false;
-                }
-            });
+           
         
 }
