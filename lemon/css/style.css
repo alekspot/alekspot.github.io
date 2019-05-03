@@ -361,8 +361,9 @@ body {
 	flex-direction: column;
 	justify-content: space-between;
 	background: #fff;
-	flex: 0 1 45%;
+	flex: 0 1 47%;
 	padding: 0 35px;
+	font-family: 'Josefin Sans', sans-serif;
 	
 }
 .section4__error,.section4__button {
@@ -374,7 +375,7 @@ body {
 	background-size: cover;
 }
 
-.section4__title {
+.section__title {
 	border-bottom: solid 2px #dddddd;
 	padding-bottom: 6px;
 	margin-bottom: 0;
@@ -398,10 +399,18 @@ body {
 }
 .section4__photo {	
 	height: 128px;
-	background: url(../img/photo.png) no-repeat;
+	
 	background-position: cover;
 	flex: 0 0 128px;
 	border-radius: 50%;
+}
+.photo1 {
+	background: url(../img/photo.png) no-repeat;
+}
+.photo2 {
+	background: url(../img/man2.png) no-repeat;
+	-webkit-background-size: 128px;
+	background-size: 128px;
 }
 .section4__contact {
 	flex:1;
@@ -416,23 +425,27 @@ body {
 }
 
 .section4__name {
+	font-size: 24px;
+	font-weight: bold;
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
 .section4__from {
+
 	border-bottom: solid 2px #dddddd;
 	padding-bottom: 6px;
 	margin-bottom: 0;
 }
 
 .section4__title_about {
+	font-style: italic;
 	font-size: 20px;
 	margin: 15px 0;
 }
 
 .section4__text {
-
+	font-style: italic;
 }
 
 .section4__sign {
@@ -481,3 +494,85 @@ body {
 	text-align: center;
 }
 }
+
+.section5 {
+	margin-top: 80px;
+}
+
+.s5__titele {
+	color: #055555;
+}
+
+.section5__card {
+	font-family: 'Josefin Sans', sans-serif;
+	background: #fff;
+	max-width: 290px;
+	padding: 15px;
+}
+.card1__info {
+	display: flex;
+	margin-top: 10px;
+}
+.section5__recipe {
+	padding-left: 20px;
+}
+.section5__photo {
+	background: url(../img/man3.png) no-repeat;
+	width: 56px;
+	height: 56px;
+
+}
+
+.slider {
+		position: relative;
+	 	max-width: 700px;
+	 	margin: 0 auto;
+	 	overflow: hidden;
+	 	margin-top: 10px;
+	}
+	.slider__slides {
+		position: relative;
+		display: flex;
+		left:0;
+	}
+	.slider__slides_animated {
+		transition: .6s;
+	}
+	.slider__item {
+		position: relative;
+		flex:0 0 100%;
+		padding-top: 120px;
+		font-size: 60px;
+		left: 0;
+		padding-bottom: 30%;
+		background-size: cover;
+	}
+
+.slider__nav {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		bottom: 10%;
+		width: 100%;
+		
+	}
+	.slider__link {
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background: #fff;
+		margin: 0 10px;
+	}
+	.slider__link_active {
+		background: #555555;
+	}
+
+	.slider__item1 {
+		background: url(../img/slide1.png);
+	}
+	.slider__item2 {
+		background: url(../img/s21.png);
+	}
+	.slider__item3 {
+		background: url(../img/s22.png);
+	}

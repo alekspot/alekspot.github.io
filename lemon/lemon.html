@@ -7,6 +7,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,700|Playfair+Display:400,900" rel="stylesheet">
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="./css/normalize.css">
+	<script src="./scripts/jquery-3.3.1.min.js"></script>
+	<script src="./scripts/slider.js"></script>
+	<script src="./scripts/masonry.pkgd.min.js"></script>
 </head>
 <body>
 	<div class="wrapper">
@@ -102,10 +105,10 @@ TOP with remaining 8 to 9 ice cream sandwiches to form an even layer. Spread wit
 			</section>
 			<section class="section4">
 				<div class="section4__card">
-					<h3 class="section4__title">Author</h3>
+					<h3 class="section__title">Author</h3>
 					<div class="section4__about">
 						<div class="section4__about_top">
-							<div class="section4__photo"></div>
+							<div class="section4__photo photo1"></div>
 							<div class="section4__contact">
 								<h4 class="section4__name">Karen Gray</h4>
 								<div class="section4__from">United States</div>
@@ -119,12 +122,12 @@ TOP with remaining 8 to 9 ice cream sandwiches to form an even layer. Spread wit
 					</div>
 				</div>
 				<div class="section4__card">
-					<h3 class="section4__title">Author</h3>
+					<h3 class="section__title">Web-Developer</h3>
 					<div class="section4__about">
 						<div class="section4__about_top">
-							<div class="section4__photo"></div>
+							<div class="section4__photo photo2"></div>
 							<div class="section4__contact">
-								<h4 class="section4__name">Karen Gray</h4>
+								<h4 class="section4__name">Joe Doe</h4>
 								<div class="section4__from">United States</div>
 							</div>	
 						</div>						
@@ -135,6 +138,32 @@ TOP with remaining 8 to 9 ice cream sandwiches to form an even layer. Spread wit
 						</div>							
 					</div>
 				</div>
+			</section>
+			<section class="section5">
+				<div class="section5__card card1">
+					<h3 class="section__title s5__titele">Chi-Chi or Chichi</h3>
+					<div class="card1__info">
+						<div class="section5__photo"></div>
+						<div class="section5__recipe">Recipe by<br>
+							<b>Smuckersreg Toppings</b> <br>
+							<span class="section2__time">15min</span>
+							<span class="section2__comment">7</span>
+							<span class="section2__view">37</span>
+						</div>
+					</div>
+					<div class="section5__slide slider">
+						<div class="slider__slides slider__slides_animated">
+							<div class="slider__item slider__item1"></div>
+							<div class="slider__item slider__item2"></div>
+							<div class="slider__item slider__item3"></div>
+						</div>
+						<div class="slider__nav"></div>
+						
+					</div>
+			<script>DoSlider()</script>
+				</div>
+				<div class="card card2"></div>
+				<div class="card card3"></div>
 			</section>
 		</main>
 	</div>
