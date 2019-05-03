@@ -179,17 +179,22 @@ body {
 	display: flex;
 	justify-content: flex-start;
 	flex-wrap: wrap;
-	padding: 40px 55px;
+	
 	background: #fff;
 	
 }
 .section2__card {
-	margin: 0 1%;
-	flex: 1 1 ;
+	flex: 0 1 29.3333333%;
+	margin:  0 2%
 }
-.section2 img {
-	max-width: 100%;
+.section2__img {
+	width: 100%;
 }
+
+.section2__text {
+	
+}
+
 .section2__title {
 	font-family: 'Josefin Sans', sans-serif;
 	font-size: 18px;
@@ -230,6 +235,115 @@ body {
 	}
 	.section2__card {
 	flex:0 0 46%;
-	margin: 0 2%;
+	/*margin: 0 2%;*/
 }
+}
+@media (max-width: 620px){
+	.section1 {
+		margin-bottom: 0;
+	}
+}
+
+@media (max-width: 460px){
+	.section2 {
+		padding: 0;
+}
+	.section2__card {
+	flex:0 0 100%;
+	padding: 0;
+	margin: 0;
+}
+	.section2__text {
+		padding: 5px 30px 20px
+	}
+}
+
+.section3 {
+	display: flex;
+	background: #fff;
+
+}
+
+.section3__img {
+	background: url(../img/s31.png) no-repeat;
+	background-size: cover;
+	background-position: 40% ;
+	flex: 0 1 45%;
+	
+}
+
+.section3__card {
+	flex: 1;
+	padding:  0 30px;
+	max-width: 570px
+
+}
+
+.section3__title {
+	font-family: 'Playfair Display';
+	font-size: 32px;
+	margin: 16px 0 10px;
+	color: #055555
+}
+
+.section3__info {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+	max-width: 470px
+}
+
+.section3__about {
+	display: flex;
+	align-items: baseline;
+}
+
+.section3__time {
+
+}
+
+.section3__time::after,.section3__time::before {
+	content: "";	
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 4px;
+	background-size: cover;
+}
+.section3__time::after {
+	background: url(../img/easy.png) no-repeat;
+	height: 30px;
+	width: 30px;
+	margin-bottom: 10px;
+	margin-left:10px;
+}
+
+.section3__time:before {
+	height: 12px;
+	width: 13px;
+	background: url(../img/time.png) no-repeat;
+	margin-bottom: 3px;
+}
+.section3__text_title {
+	font-family: 'Playfair Display';
+}
+.section3__text {
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+@media (max-width: 620px){
+	.section3 {
+		flex-direction: column;
+	}
+
+	.section3__img {
+		padding-top:50%;
+		background-position: 0% 20%;
+	}
+}
+
+@media (max-width: 340px) {
+	.section3__info {
+		flex-direction: column;
+		align-items: center;
+	}
 }

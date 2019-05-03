@@ -181,3 +181,52 @@
 .ham8.active .bottom {
   stroke-dashoffset: -64px;
 }
+
+.main {
+	position: relative;
+	background: url(../img/1.jpg) center no-repeat;
+	height: 80vh;
+	background-size: cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.overlay {
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left:0;
+	right: 0;
+	background: rgba(0,0,0,0.7);
+
+}
+.intro {
+	position: relative;
+	z-index: 10;
+	max-width: 600px;
+	border:solid 4px #fff;
+	padding: 0 30px;
+	text-align: center;
+}
+.intro__title {
+	color: #fff;
+}
+
+.button {
+	z-index: 10;
+	position: relative;
+	outline: none;
+	border: none;
+	border-radius: 50px;
+	background: #ff9933;
+}
+@media (max-width: 380px){
+	.main {
+	height: 50vh;
+	padding: 30px
+}
+.intro__title {
+	font-size: 18px;
+}
+}
