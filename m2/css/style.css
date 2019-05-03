@@ -191,6 +191,7 @@
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	padding: 30px
 }
 .overlay {
 	position: absolute;
@@ -220,11 +221,16 @@
 	border: none;
 	border-radius: 50px;
 	background: #ff9933;
+	padding: 15px 25px;
+	color:#fff;
+	font-size: 20px;
+
+	
 }
 @media (max-width: 380px){
 	.main {
 	height: 50vh;
-	padding: 30px
+	
 }
 .intro__title {
 	font-size: 18px;
