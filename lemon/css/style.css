@@ -541,7 +541,46 @@ body {
 	margin: 50px 0 0;
 }
 }
+@media (max-width: 420px) {
+.section5 {
+	max-width: 420px;
+	width: 100%;
+	margin: 0;
 
+} 
+	.gutter-width {
+	width: 0;
+}
+.section5__card {
+	width: 100%;
+	margin: 0;
+	
+}
+}
+.card1 {
+	padding: 0;
+}
+.card1__title {
+	padding: 0 15px;
+}
+.card1__info {
+	padding: 0 15px;
+}
+.card1__photo {
+
+}
+.card1__recipe {
+
+}
+.section2__info {
+
+}
+.card1__wrap{
+	line-height: 0;
+}
+.card1__img {
+	width: 100%;
+}
 .card3__info {
 	display: flex;
 	padding:15px;
@@ -631,36 +670,7 @@ body {
 	font-size: 22px;
 }
 
-.card1__info {
-	display: flex;
-}
-.card1__title {
-	margin: 20px 0 10px;
-	text-align: center;
-	padding-bottom: 5px;
-	border-bottom: solid 2px #dddddd;
-	font-size: 22px;
-	color:#055555;
-}
-.card1__imgWrap {
-	line-height: 0;
-	margin: 0 -15px;
-}
-.card1__img {
-	width: 100%;
-}
 
-.card1__photo {
-	flex:0 0 70px;
-	width: 70px;
-	height: 70px;
-	background: url(../img/man3.png) no-repeat;
-	border-radius: 50%;
-	
-}
-.card1__recipe {
-	padding-left: 5px;
-}
 
 .card__title {
 	border-bottom: solid 2px #dddddd;
@@ -776,7 +786,9 @@ body {
 	stroke-dasharray: 180 1000;
 	stroke-dashoffset:9.8;
 }
-
+.calendar__table {
+	margin: 0 auto;
+}
 .calendar__month {
 	display: flex;
 	margin-top: 20px;
