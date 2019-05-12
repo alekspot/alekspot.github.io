@@ -236,7 +236,6 @@ body {
 	}
 	.section2__card {
 	flex:0 0 46%;
-	/*margin: 0 2%;*/
 }
 }
 @media (max-width: 620px){
@@ -245,7 +244,7 @@ body {
 	}
 }
 
-@media (max-width: 620px){
+@media (max-width: 420px){
 	.section2 {
 		padding: 0;
 }
@@ -561,16 +560,27 @@ body {
 	padding: 0;
 }
 .card1__title {
-	padding: 0 15px;
+	margin: 25px 15px 15px;
+	padding-bottom: 5px;
+	font-size: 22px;
+	color:#055555;
+	border-bottom: solid 2px #dddddd;
 }
 .card1__info {
 	padding: 0 15px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
 }
 .card1__photo {
-
+	
+	width: 80px;
+	height: 80px;
+	background: url(../img/man3.png) no-repeat;
+	background-size: cover;
 }
 .card1__recipe {
-
+	padding: 0 20px;
 }
 .section2__info {
 
@@ -650,14 +660,14 @@ body {
 	margin-top: 5px;
 }
 .card2__button {
-
-	align-self: flex-end;
+	display: block;
+	margin: 30px 0 40px auto;
 }
 
 .card3 {
 	background: url(../img/pop.png) no-repeat;
 	background-size: cover;
-	padding-bottom:100px;
+	padding-bottom:35%;
 }
 .card3__title {
 	margin-bottom: 20px;
@@ -670,6 +680,14 @@ body {
 	font-size: 22px;
 }
 
+@media (max-width: 420px){
+.card2__recipe_title {
+	font-size: 16px;
+}
+.card3 {
+	background-position: 0 99%;
+}
+}
 
 
 .card__title {
@@ -731,11 +749,11 @@ body {
 
 .timeline {
 	position: absolute;
-	display: flex;
+	
 	flex-direction: column;
 	justify-content: space-between;
 	align-self: center;
-	height: 220px;
+	
 	transform: rotate(270deg);
 	transform-origin:0 0;
 	top:315px;
@@ -744,6 +762,10 @@ body {
 	padding-left: 20px; 
 }
 
+
+.line {
+	padding: 10% 0 ;
+}
 .progress {
 	display: flex;
 	margin: 20px 0;
