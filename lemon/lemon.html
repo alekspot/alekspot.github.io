@@ -49,7 +49,7 @@
 					<div class="section2__text">
 						<p class="section2__title">Raspberry & Cream Frozen Yogurt Pie</p>
 						<div class="section2__info">
-							<span class="time">35mins</span>
+							<span class="time">35 mins</span>
 							<span class="comment">7</span>
 							<span class="view">14</span>
 						</div>
@@ -64,7 +64,7 @@
 					<div class="section2__text">
 						<p class="section2__title">Raspberry & Cream Frozen  Yogurt Pie</p>
 						<div class="section2__info">
-							<span class="time">35mins</span>
+							<span class="time">35 mins</span>
 							<span class="comment">7</span>
 							<span class="view">14</span>
 						</div>						
@@ -77,7 +77,7 @@
 					<div class="section2__text">
 						<p class="section2__title">Raspberry & Cream Frozen Yogurt Pie</p>
 						<div class="section2__info">
-							<span class="time">35mins</span>
+							<span class="time">35 mins</span>
 							<span class="comment">7</span>
 							<span class="view">14</span>
 						</div>
@@ -271,14 +271,16 @@ TOP with remaining 8 to 9 ice cream sandwiches to form an even layer. Spread wit
 				<div class="section5__card card6">
 					<h3 class="card__title">Timeline</h3>
 					<h4 class="section5__title_blue">Time line</h4>
+
 					<div class="timeline">
 						<div class="line">EASY <br> <div class="timeline__time time1">15min</div></div>
 						<div class="line">MIDDLE <br> <div class="timeline__time time2">25min</div></div>
 						<div class="line">EASY <br> <div class="timeline__time time3">40min</div></div>
 					</div>
+
 					<p class="card6__text">Eam adhuc iudico percipitur ex, ut malis audire voluptaria has. </p>
 				</div>
-				<!-- <div class="section5__card card_empty"></div> -->
+				<div class="section5__card card_empty"></div>
 				<div class="section5__card card7">
 					<h3 class="card__title">Calendar</h3>
 					<div class="calendar">
@@ -347,6 +349,13 @@ TOP with remaining 8 to 9 ice cream sandwiches to form an even layer. Spread wit
 				</div>
 
 				<script>
+					
+
+					$(function(){
+						var empty = $(".card_empty");
+						if($(window).width()<1045){
+							empty.removeClass("section5__card");
+					}
 					var $grid = $('.section5').masonry({
 						
 						itemSelector: '.section5__card',
@@ -356,6 +365,21 @@ TOP with remaining 8 to 9 ice cream sandwiches to form an even layer. Spread wit
 						horizontalOrder: true,
 					});
 
+
+
+					
+						 $(window).resize(function () {
+						
+						if($(window).width()<1045){
+							empty.removeClass("section5__card");
+						} 
+						else if($(window).width()>1045) {
+							empty.addClass("section5__card");
+						}
+					});
+
+					});
+					
 					
 
 

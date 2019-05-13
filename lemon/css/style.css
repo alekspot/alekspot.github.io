@@ -210,11 +210,11 @@ body {
 	width: 13px;
 	display: inline-block;
 	vertical-align: middle;
-	margin-right: 4px;
 	background-size: cover;
 }
 .time {
 	font-family: sans-serif;
+	margin-right: 4px;
 
 }
 .time::before {
@@ -222,9 +222,12 @@ body {
 	margin-bottom: 4px;
 
 }
+.comment {
+	margin: 4px;
+}
 .comment::before {
 	background: url(../img/comm.png) no-repeat;
-	margin-bottom: 2px;
+	margin: 2.5px;
 }
 .view::before {
 	background: url(../img/veiw.png) no-repeat;
@@ -353,7 +356,7 @@ body {
 
 .section4 {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	overflow: hidden;
 }
 
@@ -455,7 +458,7 @@ body {
 	align-self: flex-end;
 }
 
-@media (max-width: 960px) {
+@media (max-width: 765px) {
 	.section4 {
 		flex-direction: column;
 		margin:0;
@@ -464,12 +467,12 @@ body {
 	background: #fff;
 	flex: 0 1 100%;
 	padding: 0 35px 30px;
-	margin: 20px 0;
+	margin: 0 0 20px;
 	
 }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 1100px) {
 	.section4__about_top {
 		align-items: center;
 	}
@@ -510,7 +513,7 @@ body {
 	width: 290px;
 	font-family: 'Josefin Sans', sans-serif;
 	background: #fff;
-	margin: 50px 25px 0;
+	margin: 0 25px 50px;
 
 }
 
@@ -530,7 +533,7 @@ body {
 @media (max-width: 765px) {
 .section5 {
 	max-width: 290px;
-	margin: 80px auto 0;
+	margin: 0 auto 0;
 
 } 
 	.gutter-width {
@@ -560,10 +563,11 @@ body {
 	padding: 0;
 }
 .card1__title {
-	margin: 25px 15px 15px;
-	padding-bottom: 5px;
+	margin: 18px 15px 15px;
+	padding-bottom: 3px;
 	font-size: 22px;
 	color:#055555;
+	text-align: center;
 	border-bottom: solid 2px #dddddd;
 }
 .card1__info {
@@ -574,7 +578,7 @@ body {
 }
 .card1__photo {
 	flex:0 0 80px;
-	
+	width: 80px;
 	height: 80px;
 	background: url(../img/man3.png) no-repeat;
 	background-size: cover;
@@ -582,23 +586,25 @@ body {
 .card1__recipe {
 	padding: 0 20px;
 }
-.section2__info {
 
-}
 .card1__wrap{
 	line-height: 0;
 }
+
 .card1__img {
 	width: 100%;
 }
+
 .card3__info {
 	display: flex;
 	padding:15px;
 }
+
 .section5__recipe {
 	padding-left: 20px;
 	flex:1 0;
 }
+
 .section5__photo {
 	background: url(../img/man3.png) no-repeat;
 	flex:0 0 56px;
@@ -657,7 +663,7 @@ body {
 }
 
 .card2__recipe_text {
-	margin-top: 5px;
+	margin-top: 0;
 }
 .card2__button {
 	display: block;
@@ -667,7 +673,7 @@ body {
 .card3 {
 	background: url(../img/pop.png) no-repeat;
 	background-size: cover;
-	padding-bottom:35%;
+	padding-bottom: 108px;
 }
 .card3__title {
 	margin-bottom: 20px;
@@ -679,8 +685,12 @@ body {
 .card3__name {
 	font-size: 22px;
 }
-
-@media (max-width: 420px){
+@media (max-width: 765px){
+.card3 {
+	padding-bottom:35%;
+}
+}
+@media (max-width: 360px){
 .card2__recipe_title {
 	font-size: 16px;
 }
@@ -689,11 +699,10 @@ body {
 }
 }
 
-
 .card__title {
 	border-bottom: solid 2px #dddddd;
 	font-style: italic;
-	margin: 25px 0 10px;
+	margin: 20px 0 10px;
 	padding-bottom: 5px;
 }
 
@@ -701,6 +710,7 @@ body {
 	font-family: 'Playfair Display';
 	color: #055555;
 	font-size: 20px;
+
 }
 .timeline__time {
 	display: flex;
@@ -730,41 +740,60 @@ body {
 	background: #b50051;
 }
 
-.card4 {
-	position: relative;
-}
-
 .card4__text {
 	margin-top: 0;
 }
-
+@media (max-width: 1045px) {
+	.card4 {
+		padding-bottom: 14px;
+	}
+}
 .card6 {
 	position: relative;
 }
 
 .card6__text {
-	margin: 225px 0 55px;
-	padding: 0 18px;
+	margin: -45px 0 10px;
 }
-
+.timeline-wrap {
+	position: relative;
+}
 .timeline {
-	position: absolute;
-	
+	position: relative;	
+	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
-	align-self: center;
-	
+	justify-content: space-around;
+	align-items: flex-start;
 	transform: rotate(270deg);
 	transform-origin:0 0;
-	top:315px;
-	left:12%;
+	top:200px;
+	height: 260px;
 	border-left: solid 2px #dddddd;
-	padding-left: 20px; 
+	padding-left: 20px;
+	
 }
 
 
 .line {
-	padding: 10% 0 ;
+	/*padding: 10% 0 ;*/
+}
+
+@media (max-width: 360px) {
+.timeline {	
+	transform:none;
+	position: static;
+	height: 60vw;
+	border-bottom: solid 2px #dddddd;
+	border-left: none;
+	padding-left:0;
+	margin: -20px 0 0;
+}
+.line {
+	/*padding: 10% 0 ;*/
+}
+.card6__text {
+	margin: 10px 0 0;
+}
 }
 .progress {
 	display: flex;
@@ -819,13 +848,17 @@ body {
 }
 
 .calendar__month::before {
-	content: "\2039"
+	content: "\2039";
 }
 
 .calendar__month::after {
-	content: "\203A"
+	content: "\203A";
 }
 
+@media (max-width: 360px){
+.calendar__month::before,.calendar__month::after {
+}
+}
 .calendar__day {
 	font-size: 14px;
 	width: 35px;
