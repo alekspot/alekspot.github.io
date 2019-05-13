@@ -573,8 +573,8 @@ body {
 	margin-bottom: 10px;
 }
 .card1__photo {
+	flex:0 0 80px;
 	
-	width: 80px;
 	height: 80px;
 	background: url(../img/man3.png) no-repeat;
 	background-size: cover;
