@@ -119,18 +119,28 @@ body {
 } 
 @media (max-width: 680px){
 	.section1 {
-		background-size: 180%;
+		background-position: -10px;
 		
 	}
+	.section1__text {
+		max-width: 330px;
+		
+
+}
+.section1__title {
+		font-size: 21px;
+}
 }
 
 @media (max-width: 420px){
 	.section1 {
 		background-position: 85%;
-	
-		
 	}
 	.section1__title,.section1__text{
+	display: none;
+}
+
+.section1__logo {
 	display: none;
 }
 	.section1__card,.section1__button {
