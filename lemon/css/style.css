@@ -135,6 +135,7 @@ body {
 @media (max-width: 420px){
 	.section1 {
 		background-position: 85%;
+		padding: 2% 0 0;
 	}
 	.section1__title,.section1__text{
 	display: none;
@@ -152,9 +153,6 @@ body {
  	}
  	.section1__button {
  		margin: 0;
- 		margin-top: 64%;
- 		padding: 25px;
- 		font-size: 18px;
  		border:none;
  	}
 }
