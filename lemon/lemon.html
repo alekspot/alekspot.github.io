@@ -15,22 +15,24 @@
 <body>
 	<div class="wrapper">
 		<header class="header">
-			<a href="#" class="header__logo"><img src="./img/logo.png" alt=""></a>
-			<nav class="header__nav">
-				<ul class="header__menu">
-					<li class="header__item"><a href="#" class="header__link">Home</a></li>
-					<li class="header__item"><a href="#" class="header__link">Recipes</a></li>
-					<li class="header__item"><a href="#" class="header__link">Photo galleries</a></li>
-					<li class="header__item"><a href="#" class="header__link">Video</a></li>
-					<li class="header__item"><a href="#" class="header__link">All categories</a></li>
-				</ul>
-			</nav>
-			<button class="button header__button">find a recipe</button>
-			<div class="header__burg">
-				<div class="header__burg__item"></div>
-				<div class="header__burg__item"></div>
-				<div class="header__burg__item"></div>
-				<div class="header__burg__item"></div>
+			<div class="header__wrapper">
+				<a href="#" class="header__logo"><img src="./img/logo.png" alt=""></a>
+				<nav class="header__nav">
+					<ul class="header__menu">
+						<li class="header__item"><a href="#" class="header__link">Home</a></li>
+						<li class="header__item"><a href="#" class="header__link">Recipes</a></li>
+						<li class="header__item"><a href="#" class="header__link">Photo galleries</a></li>
+						<li class="header__item"><a href="#" class="header__link">Video</a></li>
+						<li class="header__item"><a href="#" class="header__link">All categories</a></li>
+					</ul>
+				</nav>
+				<button class="button header__button">find a recipe</button>
+				<div class="header__burg">
+					<div class="header__burg__item"></div>
+					<div class="header__burg__item"></div>
+					<div class="header__burg__item"></div>
+					<div class="header__burg__item"></div>
+				</div>
 			</div>
 		</header>
 		<main class="main">
@@ -351,43 +353,52 @@ TOP with remaining 8 to 9 ice cream sandwiches to form an even layer. Spread wit
 				<script>
 					
 
-					$(function(){
-						var empty = $(".card_empty");
-						if($(window).width()<1045){
-							empty.removeClass("section5__card");
-					}
-					var $grid = $('.section5').masonry({
-						
+					var $grid = $('.section5').masonry();
+					$grid.imagesLoaded().progress( function() {
+					    $grid.masonry({
 						itemSelector: '.section5__card',
 						percentPosition: true,
 						columnWidth: '.section5__card',
+						singleMode: true,
 						gutter:'.gutter-width',
-						horizontalOrder: true,
+						horizontalOrder: true
+					});
 					});
 
-
-
-					
-						 $(window).resize(function () {
-						
-						if($(window).width()<1045){
-							empty.removeClass("section5__card");
-						} 
-						else if($(window).width()>1045) {
-							empty.addClass("section5__card");
+							
+				</script>
+				<script>
+					$(function(){
+						function toogleEmpty(){
+							if($(window).width()<1045) {
+								$(".card_empty").removeClass("section5__card");
+							}
+							if($(window).width()>=1045) {
+								$(".card_empty").addClass("section5__card");
+							}
 						}
+						toogleEmpty();
+					$(window).resize(function(){
+						toogleEmpty();								
 					});
+
+
 
 					});
 					
+
 					
-
-
+					// $(".card_empty").remove();
+					// RemoveEmpty();
+					
+					
 					
 				</script>
 			</section>
 		</main>
-		<footer class="footer">
+		
+	</div>
+	<footer class="footer">
 			<div class="footer__wrap">
 				<a href="#" class="footer__logo"><img src="./img/logo3.png" alt="" class="footer__img"></a>
 				<nav class="footer__nav">
@@ -403,6 +414,5 @@ TOP with remaining 8 to 9 ice cream sandwiches to form an even layer. Spread wit
 			</div>
 			
 		</footer>
-	</div>
 </body>
 </html>
