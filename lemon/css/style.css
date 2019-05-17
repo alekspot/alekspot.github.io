@@ -725,12 +725,12 @@ body {
 }
 
 @media (max-width: 1045px) {
-	.card4 {
-		padding-bottom: 14px;
-	}
+.card4 {
+	padding-bottom: 14px;
+}
 
-	.card6__text {
-	margin: -52px 0 10px;
+.card6__text {
+margin: -52px 0 10px;
 }
 .card6__text {
 	margin: -53px 0 10px;
@@ -754,8 +754,7 @@ body {
 	top:200px;
 	height: 260px;
 	border-left: solid 2px #dddddd;
-	padding-left: 20px;
-	
+	padding-left: 20px;	
 }
 
 @media (max-width: 360px) {
