@@ -298,12 +298,6 @@
 	.catalog__menu {
 		display: none;
 	}
-	.catalog__item_percentSize {
-	width: 100%
-}
-	.gutter-width {
-	width: 7%;
-}
 }
 
 .footer__logo {
