@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>SliderNew</title>
 	<script src="jquery-3.3.1.min.js"></script>
 </head>
@@ -9,8 +10,22 @@
 	.slider {
 		position: relative;
 	 	max-width: 700px;
-	 	margin: 0 auto;
+	 	margin: 40px auto;
 	 	overflow: hidden;
+	}
+	.prev,.next {
+		position: absolute;
+		font-size: 50px;
+		color:#fff;
+		top:40%;
+		background: none;
+		border: none;
+		outline: none;
+		padding: 0 40px;
+	}
+
+	.next {
+		right: 0;
 	}
 	.slider__slides {
 		position: relative;
@@ -40,11 +55,10 @@
 	}
 
 	.slider__nav {
-		position: absolute;
+		position: relative;
 		display: flex;
 		justify-content: center;
-		bottom: 10%;
-		left:30%;
+		top:-40px;
 	}
 	.slider__link {
 		width: 10px;
@@ -52,6 +66,7 @@
 		background: #fff;
 		border-radius: 50%;
 		border:solid 2px;
+		margin: 0 10px;
 	}
 	.slider__link_active {
 		background: #000;
@@ -65,8 +80,8 @@
 			<div class="slider__item green">3</div>
 		</div>
 		<div class="slider__nav"></div>
-		<button class="prev">Назад</button>
-		<button class="next">Вперед</button>
+		<button class="prev">&#8249;</button>
+		<button class="next">&#8250;</button>
 	</div>
 	<div class="slider s2">
 		<div class="slider__slides slider__slides_animated">
@@ -77,8 +92,8 @@
 			<div class="slider__item blue">5</div>
 		</div>
 		<div class="slider__nav"></div>
-		<button class="prev">Назад</button>
-		<button class="next">Вперед</button>
+		<button class="prev">&#8249;</button>
+		<button class="next">&#8250;</button>
 	</div>
 
 	<script>
