@@ -7,6 +7,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,700|Playfair+Display:400,900" rel="stylesheet">
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="./css/normalize.css">
+	<link rel="stylesheet" href="./css/humburg.css">
 	<script src="./scripts/jquery-3.3.1.min.js"></script>
 	<script src="./scripts/slider.js"></script>
 	<script src="./scripts/masonry.pkgd.min.js"></script>
@@ -15,22 +16,36 @@
 <body>
 	<div class="wrapper">
 		<header class="header">
-			<a href="#" class="header__logo"><img src="./img/logo.png" alt=""></a>
-			<nav class="header__nav">
-				<ul class="header__menu">
-					<li class="header__item"><a href="#" class="header__link">Home</a></li>
-					<li class="header__item"><a href="#" class="header__link">Recipes</a></li>
-					<li class="header__item"><a href="#" class="header__link">Photo galleries</a></li>
-					<li class="header__item"><a href="#" class="header__link">Video</a></li>
-					<li class="header__item"><a href="#" class="header__link">All categories</a></li>
-				</ul>
-			</nav>
-			<button class="button header__button">find a recipe</button>
-			<div class="header__burg">
-				<div class="header__burg__item"></div>
-				<div class="header__burg__item"></div>
-				<div class="header__burg__item"></div>
-				<div class="header__burg__item"></div>
+			<div class="header__wrapper">
+				<a href="#" class="header__logo"><img src="./img/logo.png" alt=""></a>
+				<nav class="header__nav">
+					<ul class="header__menu">
+						<li class="header__item"><a href="#" class="header__link">Home</a></li>
+						<li class="header__item"><a href="#" class="header__link">Recipes</a></li>
+						<li class="header__item"><a href="#" class="header__link">Photo galleries</a></li>
+						<li class="header__item"><a href="#" class="header__link">Video</a></li>
+						<li class="header__item"><a href="#" class="header__link">All categories</a></li>
+					</ul>
+				</nav>
+				<button class="button header__button">find a recipe</button>
+				<div class="menu-toggle menu-toggle_header">
+					<div class="hamburger">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<div class="cross">
+						<span></span>
+						<span></span>
+					</div>
+				</div>
+				<script>
+					$('.menu-toggle_header').click(function(e){
+					e.stopPropagation();
+					$(this).toggleClass('active');
+				
+			});
+				</script>
 			</div>
 		</header>
 		<main class="main">
@@ -44,7 +59,7 @@
 			</section>
 			<section class="section2">
 				<div class="section2__card">
-					<img class="section2__img" src="./img/s21.png" alt="">
+					<img class="section2__img" src="./img/s211.jpg" alt="">
 
 					<div class="section2__text">
 						<p class="section2__title">Raspberry & Cream Frozen Yogurt Pie</p>
@@ -59,10 +74,10 @@
 
 				</div>
 				<div class="section2__card">
-					<img class="section2__img" src="./img/s22.png" alt="">
+					<img class="section2__img" src="./img/s222.jpg" alt="">
 
 					<div class="section2__text">
-						<p class="section2__title">Raspberry & Cream Frozen  Yogurt Pie</p>
+						<p class="section2__title">Giant Ice Cream Sandwich</p>
 						<div class="section2__info">
 							<span class="time">35 mins</span>
 							<span class="comment">7</span>
@@ -73,9 +88,9 @@
 					
 				</div>
 				<div class="section2__card">
-					<img class="section2__img" src="./img/s23.png" alt="">
+					<img class="section2__img" src="./img/s233.jpg" alt="">
 					<div class="section2__text">
-						<p class="section2__title">Raspberry & Cream Frozen Yogurt Pie</p>
+						<p class="section2__title">Dark Chocolate Crunch Ice Cream Sandwich Cake</p>
 						<div class="section2__info">
 							<span class="time">35 mins</span>
 							<span class="comment">7</span>
@@ -118,27 +133,19 @@ TOP with remaining 8 to 9 ice cream sandwiches to form an even layer. Spread wit
 						<div class="section4__discription">
 							<h5 class="section4__title_about">About Lemon</h5>
 							<div class="section4__text">Over the fifteen-year life span of Food.com, we’ve learned that – in addition to eating – sharing is what you do best. And thanks to the 20 million of you who come here each month, we now have 500,000 recipes to show for it, more than anywhere else in the digital universe. We also have tons crazy-tempting photos, troves of recipe reviews and more than 2 million Facebook likes. That’s a heck of a lot of Food. Thank you!</div>
-							
+							<img src="./img/sign.png" alt="" class="section4__sign">
 						</div>							
 					</div>
 				</div>
-				<div class="section4__card">
-					<h3 class="section__title">Web-Developer</h3>
-					<div class="section4__about">
-						<div class="section4__about_top">
-							<div class="section4__photo photo2"></div>
-							<div class="section4__contact">
-								<h4 class="section4__name">Joe Doe</h4>
-								<div class="section4__from">United States</div>
-							</div>	
-						</div>						
-						<div class="section4__discription">
-							<h5 class="section4__title_about">About Lemon</h5>
-							<div class="section4__text">Over the fifteen-year life span of Food.com, we’ve learned that – in addition to eating – sharing is what you do best. And thanks to the 20 million of you who come here each month, we now have 500,000 recipes to show for it, more than anywhere else in the digital universe. We also have tons crazy-tempting photos, troves of recipe reviews and more than 2 million Facebook likes. That’s a heck of a lot of Food. Thank you!</div>
-							
-						</div>							
+				<div class="section4__card error">
+					<h3 class="section__title">404</h3>
+					<div class="error__text">
+						<h4 class="error__title">Sorry</h4>
+						<p class="error__info">We couldn't <br>find the page</p>
 					</div>
+					<button class="button error__button">Back</button>	
 				</div>
+
 			</section>
 
 			<section class="section5">
@@ -171,7 +178,7 @@ TOP with remaining 8 to 9 ice cream sandwiches to form an even layer. Spread wit
 					</div>
 					<div class="card2__recipe">
 						<div class="card2__recipe_photo">
-							<img class="card2__recipe_img" src="./img/s21.png" alt="">
+							<img class="card2__recipe_img" src="./img/s211.jpg" alt="">
 						</div>
 						<div class="card2__recipe_discription">
 							<h4 class="card2__recipe_title">Smuckersreg Toppings</h4>
@@ -180,7 +187,7 @@ TOP with remaining 8 to 9 ice cream sandwiches to form an even layer. Spread wit
 					</div>
 					<div class="card2__recipe">
 						<div class="card2__recipe_photo">
-							<img class="card2__recipe_img" src="./img/s22.png" alt="">
+							<img class="card2__recipe_img" src="./img/s222.jpg" alt="">
 						</div>
 						<div class="card2__recipe_discription">
 							<h4 class="card2__recipe_title">Smuckersreg Toppings</h4>
@@ -351,43 +358,52 @@ TOP with remaining 8 to 9 ice cream sandwiches to form an even layer. Spread wit
 				<script>
 					
 
-					$(function(){
-						var empty = $(".card_empty");
-						if($(window).width()<1045){
-							empty.removeClass("section5__card");
-					}
-					var $grid = $('.section5').masonry({
-						
+					var $grid = $('.section5').masonry();
+					$grid.imagesLoaded().progress( function() {
+					    $grid.masonry({
 						itemSelector: '.section5__card',
 						percentPosition: true,
 						columnWidth: '.section5__card',
+						singleMode: true,
 						gutter:'.gutter-width',
-						horizontalOrder: true,
+						horizontalOrder: true
+					});
 					});
 
-
-
-					
-						 $(window).resize(function () {
-						
-						if($(window).width()<1045){
-							empty.removeClass("section5__card");
-						} 
-						else if($(window).width()>1045) {
-							empty.addClass("section5__card");
+							
+				</script>
+				<script>
+					$(function(){
+						function toogleEmpty(){
+							if($(window).width()<1045) {
+								$(".card_empty").removeClass("section5__card");
+							}
+							if($(window).width()>=1045) {
+								$(".card_empty").addClass("section5__card");
+							}
 						}
+						toogleEmpty();
+					$(window).resize(function(){
+						toogleEmpty();								
 					});
+
+
 
 					});
 					
+
 					
-
-
+					// $(".card_empty").remove();
+					// RemoveEmpty();
+					
+					
 					
 				</script>
 			</section>
 		</main>
-		<footer class="footer">
+		
+	</div>
+	<footer class="footer">
 			<div class="footer__wrap">
 				<a href="#" class="footer__logo"><img src="./img/logo3.png" alt="" class="footer__img"></a>
 				<nav class="footer__nav">
@@ -403,6 +419,5 @@ TOP with remaining 8 to 9 ice cream sandwiches to form an even layer. Spread wit
 			</div>
 			
 		</footer>
-	</div>
 </body>
 </html>
