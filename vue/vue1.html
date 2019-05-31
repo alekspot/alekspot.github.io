@@ -2,19 +2,10 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-	<style>
-		input {
-			margin: 5px 0;
-		}
-		button {
-			margin: 5px;
-		}
-	</style>
 </head>
-
 <body>
 <h1>Сортировка и фильтры на Vue</h1>
 <div id="app">
@@ -26,6 +17,7 @@
 			Имя {{man.name}}, возраст {{man.age}}
 		</li>
 	</ul>
+
 <button @click='filtrUp'>Сортировать по возрастанию</button>
 <button @click='filtrDown'>Сортировать по убыванию</button>
 <button @click='showOld(65)'>Показать выше 65лет</button>
@@ -49,10 +41,12 @@
 			],
 			savePeople:null,
 			added:{name:"",age:null},
-			searched:''
+			searched:'',
+			canReset:true
 		},
 		methods : {
 			filtrUp:function(){
+				this.canReset = true;
 				return this.people.sort(function(a,b){
 					return a.age-b.age;		
 				})
@@ -63,13 +57,19 @@
 				})		
 			},
 			showOld:function(a){
+				if(this.canReset){
 				this.savePeople = this.people;
 				this.people = this.people.filter(function(obj){
 					return obj.age > a;
-				})
+				});
+				this.canReset = false;
+			}
 			},
 			reset:function(){
-				this.people = this.savePeople;
+				
+					this.people = this.savePeople;
+					this.canReset = true;
+				
 			},
 			add:function(){
 				var man = this.added;
@@ -81,6 +81,7 @@
 				}
 			},
 			showName:function(){
+				this.canReset = true;
 				var name = this.searched;
 				this.savePeople = this.people;
 				if(name!=''){
