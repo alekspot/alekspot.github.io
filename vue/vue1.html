@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+<h1>Сортировка и фильтры на Vue</h1>
+<div id="app">
+	<input v-model="added.name" type="text" placeholder="Name">
+	<input v-model="added.age" type="number" placeholder="age">
+	<button @click='add'>Добавить</button>
+	<ul>
+		<li v-for='(man,index) in people'>
+			Имя {{man.name}}, возраст {{man.age}}
+		</li>
+	</ul>
+<button @click='filtrUp'>Сортировать по возрастанию</button>
+<button @click='filtrDown'>Сортировать по убыванию</button>
+<button @click='showOld(65)'>Показать выше 65лет</button>
+<button @click='reset'>Сбросить</button>
+<h2>Поиск по имени</h2>
+<input v-model="searched" type="text" placeholder="Name">
+<button @click='showName'>Показать имя</button>
+<button @click='reset'>Сбросить</button>
+
+</div>
+
+<script>
+	new Vue({
+		el:'#app',
+		data:{
+			people : [
+				{name:"Вася",age:18},
+				{name:"Таня",age:71},
+				{name:"Игорь",age:23},
+				{name:"Дэни",age:1},
+			],
+			savePeople:null,
+			added:{name:"",age:null},
+			searched:''
+		},
+		methods : {
+			filtrUp:function(){
+				return this.people.sort(function(a,b){
+					return a.age-b.age;		
+				})
+			},
+			filtrDown:function(){
+				return this.people.sort(function(a,b){
+					return b.age-a.age;		
+				})		
+			},
+			showOld:function(a){
+				this.savePeople = this.people;
+				this.people = this.people.filter(function(obj){
+					return obj.age > a;
+				})
+			},
+			reset:function(){
+				this.people = this.savePeople;
+			},
+			add:function(){
+				var man = this.added;
+				if(man.name != "" && man.age !=null){
+					this.people.unshift({name:man.name,age:man.age});
+					this.added.name = "";
+					this.added.age = null;
+					this.savePeople = this.people;
+				}
+			},
+			showName:function(){
+				var name = this.searched;
+				this.savePeople = this.people;
+				if(name!=''){
+					this.people = this.people.filter(function(obj){
+					return obj.name === name;
+					})
+					
+				}
+				this.searched = '';
+			}
+		}
+	});
+</script>
+
+</body>
+</html>
