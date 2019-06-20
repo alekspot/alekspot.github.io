@@ -1,15 +1,9 @@
-body {
+/*body {
 	margin: 0;
 	background-color: #000;
-	color: #fff;
 	font-family: Monospace;
 	font-size: 13px;
 	line-height: 24px;
-}
-
-a {
-	color: #ff0;
-	text-decoration: none;
 }
 
 a:hover {
@@ -35,6 +29,5 @@ canvas {
 	z-index: 1; /* TODO Solve this in HTML */
 }
 
-.dg.ac {
-	z-index: 2 !important; /* TODO Solve this in HTML */
-}
+
+*/

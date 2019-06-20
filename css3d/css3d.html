@@ -1,21 +1,34 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>three.js css3d - youtube</title>
+		<title>css3d</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-		<link type="text/css" rel="stylesheet" href="main.css">
+		<!-- <link type="text/css" rel="stylesheet" href="main.css"> -->
 		<style>
 			body {
 				background-color: #ffffff;
+				font-family: Monospace;
 			}
-
+			#container {
+				max-width: 500px;
+				height: 250px;
+				margin: 0 auto;
+			}
 			#blocker {
 				position: absolute;
 				top: 0;
 				left: 0;
 				bottom: 0;
 				right: 0;
+
+			}
+			a {
+				color:#fff;
+			}
+			a:hover {
+				color:red;
+				display: block;
 			}
 			.plane {
 				display: flex;
@@ -25,56 +38,58 @@
 				justify-content: center;
 				width: 200px;
 				height: 200px;
-				background: url(https://www.barrierbreakers.co.uk/wp-content/uploads/2013/04/Smiley-face-400x400.jpg) !important;
-				background-size: cover !important;
+				/*background: red !important;*/
+				/*background: url(https://i05.fotocdn.net/s106/39fa6af418b5b12a/user_xl/2298797445.jpg) ;*/
+				background-size: cover;
 			}
+			.p1 {
+				/*background: url(https://i05.fotocdn.net/s106/39fa6af418b5b12a/user_xl/2298797445.jpg) ;*/
+				background: red;
+			}
+			.p2 {
+				/*background:  url(https://karabas.live/wp-content/uploads/2018/10/meme13-400x400.jpg);*/
+				background: black;
+			}
+			.p3 {
+				background: green;
+			}
+			.p4 {
+				background: pink;
+			}
+			.p5 {
+				background: gray;
+			}
+			.p6 {
+				background: yellow;
+			}
+			
 		</style>
 	</head>
 	<body>
 		<script src="three.js"></script>
 		<script src="TrackballControls.js"></script>
 		<script src="CSS3DRenderer.js"></script>
-
+		<h2>3D навигация tree.js</h2>
 		<div id="container"></div>
-		<div id="blocker"></div>
-
+		<div id="blocker"></div> 
+		<h2>3D навигация tree.js</h2>
 		<script>
 
 			var camera, scene, renderer;
 			var controls;
-
-			// var Element = function ( id, x, y, z, ry ) {
-
-			// 	var div = document.createElement( 'div' );
-			// 	div.style.width = '480px';
-			// 	div.style.height = '360px';
-			// 	div.style.backgroundColor = '#000';
-
-			// 	var iframe = document.createElement( 'iframe' );
-			// 	iframe.style.width = '480px';
-			// 	iframe.style.height = '360px';
-			// 	iframe.style.border = '0px';
-			// 	iframe.src = [ 'https://www.youtube.com/embed/', id, '?rel=0' ].join( '' );
-			// 	div.appendChild( iframe );
-
-			// 	var object = new THREE.CSS3DObject( div );
-			// 	object.position.set( x, y, z );
-			// 	object.rotation.y = ry;
-
-			// 	return object;
-
-			// };
-			 var Element = function( width, height, cssColor, pos, rot , text ) {
+			var width = container.offsetWidth;
+			var height = container.offsetHeight;
+			
+			 var Element = function( width, height, cssClass, pos, rot , text ) {
 					var link = document.createElement( 'a' );
 					link.setAttribute('href', 'yandex.ru');
 					link.innerHTML = text;
 					var element = document.createElement( 'div' );
 					
 					element.className = 'plane';
-		
-					// element.style.width = width + 'px';
-					// element.style.height = height + 'px';
-					element.style.background = cssColor;
+
+					element.classList.add(cssClass);
+					
 					element.appendChild(link);
 
 					var object = new THREE.CSS3DObject( element );
@@ -88,85 +103,32 @@
 
 			function init() {
 
-				function createPlane( width, height, cssColor, pos, rot , text ) {
-					var link = document.createElement( 'a' );
-					link.setAttribute('href', '#');
-					link.innerHTML = text;
-					var element = document.createElement( 'div' );
-					
-					element.className = 'plane';
-		
-					// element.style.width = width + 'px';
-					// element.style.height = height + 'px';
-					element.style.background = cssColor;
-					element.appendChild(link);
-
-					var object = new THREE.CSS3DObject( element );
-					object.position.copy( pos );
-					object.rotation.copy( rot );
-					scene2.add( object );
-
-					var geometry = new THREE.PlaneBufferGeometry( width, height );
-					var mesh = new THREE.Mesh( geometry, material );
-					mesh.position.copy( object.position );
-					mesh.rotation.copy( object.rotation );
-					scene.add( mesh );
-				}
-
-
 				var container = document.getElementById( 'container' );
 
 				camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 5000 );
-				camera.position.set( 500, 350, 750 );
-
+				camera.position.set( 500, 250, 350 );
+				camera.zoom = 1.5;
+				camera.updateProjectionMatrix();
 
 				scene = new THREE.Scene();
 				scene2 = new THREE.Scene();
 
 				
+				
 
 				var material = new THREE.MeshBasicMaterial( { color: 0x000000, wireframe: true, wireframeLinewidth: 1, side: THREE.DoubleSide } );
 				renderer = new THREE.CSS3DRenderer();
-				renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.setSize( width, height );
 				container.appendChild( renderer.domElement );
 
 				
-
-				createPlane(
-					200, 200,'red',new THREE.Vector3( - 100, 0, 0 ),new THREE.Euler( 0, - 90 * THREE.Math.DEG2RAD, 0 ),'LEFT'
-				);
-				//right 
-				createPlane(
-					200, 200,'blue',new THREE.Vector3( 100, 0, 0 ),new THREE.Euler( 0,  90 * THREE.Math.DEG2RAD, 0 ),'RIGHT'
-				);
-
-				createPlane(
-					200, 200,'green',new THREE.Vector3( 0, 0, 100 ),new THREE.Euler( 0, 0, 0 ),'FRONT'
-				);
-
-				createPlane(
-					200, 200,'black',new THREE.Vector3( 0, 0, -100 ),new THREE.Euler( 0, 180 * THREE.Math.DEG2RAD, 0 ),'BACK'
-				);
-
-				createPlane(
-					200, 200,
-					'chocolate',
-					new THREE.Vector3( 0, 100, 0 ),
-					new THREE.Euler(  -90 * THREE.Math.DEG2RAD, 0, 0 ),
-					'TOP'
-				);
-				createPlane(
-					200, 200,
-					'chocolate',
-					new THREE.Vector3( 0, -100, 0 ),
-					new THREE.Euler( 90 * THREE.Math.DEG2RAD, 0, 0 ),
-					'BOTTOM'
-				);
 				var group = new THREE.Group();
-				group.add( new Element(200, 200,'red',new THREE.Vector3( - 100, 0, 0 ),new THREE.Euler( 0, - 90 * THREE.Math.DEG2RAD, 0 ),'LEFT'));
-				group.add( new Element(200, 200,'blue',new THREE.Vector3( 100, 0, 0 ),new THREE.Euler( 0,  90 * THREE.Math.DEG2RAD, 0 ),'RIGHT'));
-				group.add( new Element(200, 200,'green',new THREE.Vector3( 0, 0, 100 ),new THREE.Euler( 0, 0, 0 ),'FRONT'));
-				group.add( new Element(200, 200,'black',new THREE.Vector3( 0, 0, -100 ),new THREE.Euler( 0, 180 * THREE.Math.DEG2RAD, 0 ),'BACK'));
+				group.add( new Element(200, 200,'p1',new THREE.Vector3( - 100, 0, 0 ),new THREE.Euler( 0, - 90 * THREE.Math.DEG2RAD, 0 ),'LEFT'));
+				group.add( new Element(200, 200,'p2',new THREE.Vector3( 100, 0, 0 ),new THREE.Euler( 0,  90 * THREE.Math.DEG2RAD, 0 ),'RIGHT'));
+				group.add( new Element(200, 200,'p3',new THREE.Vector3( 0, 0, 100 ),new THREE.Euler( 0, 0, 0 ),'FRONT'));
+				group.add( new Element(200, 200,'p4',new THREE.Vector3( 0, 0, -100 ),new THREE.Euler( 0, 180 * THREE.Math.DEG2RAD, 0 ),'BACK'));
+				group.add( new Element(200, 200,'p5',new THREE.Vector3( 0, 100, 0 ),new THREE.Euler(  -90 * THREE.Math.DEG2RAD, 0, 0 ),'TOP'));
+				group.add( new Element(200, 200,'p6',new THREE.Vector3( 0, -100, 0 ),new THREE.Euler( 90 * THREE.Math.DEG2RAD, 0, 0 ),'BOTTOM'));
 				scene.add( group );
 
 				controls = new THREE.TrackballControls( camera, renderer.domElement );
@@ -193,10 +155,13 @@
 			}
 
 			function onWindowResize() {
-
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
-				renderer.setSize( window.innerWidth, window.innerHeight );
+					var width = container.offsetWidth;
+					var height = container.offsetHeight;
+					camera.aspect = window.innerWidth / window.innerHeight;
+					camera.updateProjectionMatrix();
+					renderer.setSize( width, height );
+				
+				
 
 			}
 
