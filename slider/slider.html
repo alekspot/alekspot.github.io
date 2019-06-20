@@ -2,312 +2,243 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
+	<title>Document</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>SliderNew</title>
-	<script src="jquery-3.3.1.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <style>
 	.slider {
+		overflow: hidden;
+		max-width: 800px;
 		position: relative;
-	 	max-width: 700px;
-	 	margin: 40px auto;
-	 	overflow: hidden;
 	}
-	.prev,.next {
-		position: absolute;
-		font-size: 50px;
-		color:#fff;
-		top:40%;
-		background: none;
-		border: none;
-		outline: none;
-		padding: 0 40px;
-	}
-
-	.next {
-		right: 0;
-	}
-	.slider__slides {
-		position: relative;
+	.slides {
 		display: flex;
-		left:0;
+		position : relative;
+		margin: 0;
+		padding: 0;	
 	}
-	.slider__slides_animated {
+	.slides_animate {
 		transition: .6s;
 	}
-	.slider__item {
-		position: relative;
-		flex:0 0 100%;
-		color:#fff;
-		font-size: 60px;
-		left: 0;
-		padding-bottom: 30%;
-	}
-
-	.red {
-		background: red;
-	}
-	.blue {
-		background: blue;
-	}
-	.green{
-		background: green;
-	}
-
 	.slider__nav {
-		position: relative;
+		position: absolute;
 		display: flex;
-		justify-content: center;
-		top:-40px;
+		justify-content: space-around;
+		width: 30%;
+		bottom:5%;
 	}
-	.slider__link {
-		width: 10px;
-		height: 10px;
+	.slider__tab{		
+		width: 20px;
+		height: 20px;
 		background: #fff;
 		border-radius: 50%;
-		border:solid 2px;
-		margin: 0 10px;
 	}
-	.slider__link_active {
-		background: #000;
+	.slider__tab_active{
+		background: red;
+	}
+	.slide {
+		position: relative;
+		flex: 0 0 100%;
+		list-style: none;
+		font-size: 80px;
+		text-align: center;
+		padding: 1% 0;
+		background-size: cover !important;
+		color:#fff;
+		line-height: 0;
+	}
+	.next,.prev {
+		position: absolute;
+		top:45%;
+		margin: 0 20px;
+		font-size: 50px;
+		border:none;
+		color:#fff;
+		background: none;
+	}
+	.next{
+		right: 0;
+	}
+	.slide img {
+		max-width: 100%;
 	}
 </style>
 <body>
-	<h2>Адаптивный слайдер с зацикливанием</h2>
-	<div class="slider s1">
-		<div class="slider__slides slider__slides_animated">
-			<div class="slider__item red">1</div>
-			<div class="slider__item blue">2</div>
-			<div class="slider__item green">3</div>
-		</div>
-		<div class="slider__nav"></div>
-		<button class="prev">&#8249;</button>
-		<button class="next">&#8250;</button>
+	<div id="slider-app">
+		<h1>Слайдер с зацикливанием на Vue.js</h1>
+		<slider :slides="slides"></slider>
 	</div>
-	<div class="slider s2">
-		<div class="slider__slides slider__slides_animated">
-			<div class="slider__item red">1</div>
-			<div class="slider__item blue">2</div>
-			<div class="slider__item green">3</div>
-			<div class="slider__item red">4</div>
-			<div class="slider__item blue">5</div>
-		</div>
-		<div class="slider__nav"></div>
-		<button class="prev">&#8249;</button>
-		<button class="next">&#8250;</button>
-	</div>
-
-	<script>
-		$(function () {
-			EnableSlider(".s1");
-			EnableSlider(".s2");
-
-			function EnableSlider(elem) {
-			var sliderWrap = $(elem);
-			var slider = sliderWrap.find(".slider__slides");
-			var slide = slider.find(".slider__item");
-			var sliderNavigation = sliderWrap.find(".slider__nav");
-			var prevBtn = sliderWrap.find(".prev");
-			var nextBtn = sliderWrap.find(".next");
-			var slidesArr = [];
-			var triggerSlide = 0;
-			var rangeIndex = 0;
-			var autoPlay;
-			var timer;
-			var currentSlide = 0;
-			var enubled = true;
-
-			function changeSliderLink() {
-
-				if(currentSlide > slide.length-1){
-					currentSlide = 0;
-					$(elem +" .slider__link").eq(slide.length-1).removeClass("slider__link_active");
+	<template id="slider">
+			<div class="slider" ref="slider">
+				<ul class="slides" :class="{'slides_animate':animate}" :style="sliderLeft">
+					<li v-for="(slide,key,index) in sl" :style="styleSlide(slide)" class="slide">
+						<img :src="slide.img" alt="">
+					</li>
+				</ul>
+				<button class="prev" @click="prev">&#8249;</button>
+				<div class="slider__nav">	
+					<div :class="['slider__tab',n-1==currentSlide ? 'slider__tab_active' : '']" v-for="n in sl.length" @click="moveTo(n-1)"></div> 
+				</div>
+				<button class="next" @click="next">&#8250;</button>
+			</div>
+	</template>
+	<script>		
+		var bus = new Vue();
+		Vue.component('slider',{
+			props:['slides'],
+			template:'#slider',
+			data:function () {
+				return {
+					sl:this.slides,
+					sliderPos : 0,
+					trigger : 0,
+					currentSlide : 0,
+					moveRight : 0,
+					moveLeft : this.slides.length-1,
+					interval : null,
+					width : 0,
+					step : 0,
+					animate : true
 				}
-				if(currentSlide<0){
-					currentSlide = slide.length-1;
-					$(elem +" .slider__link").eq(0).removeClass("slider__link_active");
-				}
-				$(elem + " .slider__link").eq(currentSlide).toggleClass("slider__link_active");
-				$(elem + " .slider__link").eq(currentSlide-1).removeClass("slider__link_active");
-				$(elem + " .slider__link").eq(currentSlide+1).removeClass("slider__link_active");
-
-			}
-
-			for(var i = 0; i < slide.length; i++){
-				slidesArr[i]={
-					elem:slide.eq(i),
-					left:0,
-					index:i
-				};
-				$("<div>", {class: "slider__link"})
-						.appendTo(sliderNavigation)
-						.attr("data-number",i)
-						.click(function () {
-							var current = $(this).data("number");
-							findSlide(current);
-						});
-
-			}
-
-			$(".slider__link").eq(0).toggleClass("slider__link_active");
-
-			function findSlide(a){
-				for(var t = 0;t<slidesArr.length;t++){
-					if(slidesArr[triggerSlide].index!==a) MoveNext();
-					else break;
-				}
-
-			}
-
-			$(window).resize(function () {
-				slider.removeClass("slider__slides_animated");
-				refreshLeft();
-				slider.css("left",rangeIndex * slider.width());
-				setTimeout(function () {
-					slider.addClass("slider__slides_animated");
-				},10)
-			});
-
-			function refreshLeft() {
-
-					for(var z=0;z<slidesArr.length;z++){
-						var refPos = slider.width() * slidesArr.length * slidesArr[z].left;
-						slidesArr[z].elem.css("left",refPos);
-					}
-			}
-
-			function MoveSlide(dir){
-
-				if(dir=="next"){
-					var left = rangeIndex * slide.width() - slide.width();
-					slider.css("left",left);
-					rangeIndex--;
-					currentSlide++;
-
-				}
-				if(dir=="prev"){
-
-					var left = rangeIndex * slide.width() + slide.width();
-					slider.css("left",left);
-					rangeIndex++;
-					currentSlide--;
-				}
-				changeSliderLink();
-			}
-
-			function MoveLeftReverse(){
-				AddSlideLeft();
-				MoveSlide("prev");
-			}
-
-			function MoveRightReverse(){
-				AddSlideRight();
-				MoveSlide("next");
-			}
-
-			function AddSlideLeft(){
-				//На сколько нужно сместить последний слайд для перестановки
-					if(slidesArr[slidesArr.length - 1].left <= 0) {
-						var left = slidesArr[slidesArr.length - 1].left * slide.width() * slide.length;
-						var pos = -slide.width() * slide.length + left;
-					}
-
-					if(slidesArr[slidesArr.length - 1].left > 0) {
-						var left = slidesArr[slidesArr.length - 1].left * slide.width() * slide.length;
-						var pos = left - slide.width() * slide.length;
-					}
-
-				//Переместить последний вначало
-				slidesArr[slidesArr.length - 1].elem.css("left",pos);
-
-				//Сохранить текущую позицию
-				if(slidesArr[slidesArr.length - 1].left <= 0){
-					slidesArr[slidesArr.length - 1].left--;
-				}
-				if(slidesArr[slidesArr.length - 1].left > 0) {
-					slidesArr[slidesArr.length - 1].left--;
-				}
-
-				//Удалить последний элемент в массиве и добавить его вначало	
-				var temp = slidesArr.pop();
-				slidesArr.unshift(temp);
-			}
-			
-			function AddSlideRight(){
-				//На сколько нужно сместить первый слайд для перестановки
-					var left = slidesArr[0].left * slide.width() * slide.length;
-					var pos = left + slide.width() * slide.length;
+			},
+			methods:{
+				next:function(){
+					this.sliderPos -= this.width;
+					this.trigger++;
+					this.currentSlide++;
+					this.step++;
+					this.triggerControl(); 		
+					this.slideControl();		
+					this.moveControl();		
+				},
+				prev:function(){
+					this.sliderPos += this.width;
+					this.trigger--;
+					this.currentSlide--;
+					this.step--;
+					this.triggerControl();
+					this.slideControl();
+					this.moveControl();
+				},
+				triggerControl:function(){
 					
-				//Переместить первый слайд в конец
-				slidesArr[0].elem.css("left",pos);
+					if(this.trigger > this.sl.length-1) {
+						this.trigger=this.sl.length-1;
 
-				//Сохранить текущую позицию
-				slidesArr[0].left++;
+						//Контролируем какой слайд премещаем влево
+						if(this.moveLeft >= this.slides.length-1){
+							this.moveLeft = 0;
+						} else this.moveLeft++
 
-				//Удалить последний элемент в массиве и добавить его вначало	
-				var temp = slidesArr.shift();
-				slidesArr.push(temp);
-			}
+						this.addRight();
+					}
+					//если закончились слайды слева
+					if(this.trigger < 0) {
+						this.trigger = 0;
 
-			function stopAutoPlay(){
-				clearInterval(autoPlay);
-				clearTimeout(timer);
-				timer = setTimeout(startAutoPlay,5000);
-			}
+						//Контролируем какой слайд премещаем вправо
+						if(this.moveRight == 0){
+							this.moveRight = this.slides.length-1;
+						} else this.moveRight--
 
-			prevBtn.click(function() {
-				stopAutoPlay();
-				if(triggerSlide>0){
-					triggerSlide--;
-					MoveSlide("prev");
-				} else {
-					MoveLeftReverse();
+						this.addLeft();
+					}
+				},
+				slideControl:function() {
+					if(this.currentSlide > this.sl.length-1) {
+						this.currentSlide = 0;
+					}
+					if(this.currentSlide < 0) {
+						this.currentSlide = this.sl.length-1;
+					}
+				},
+				moveControl:function() {
+					if(this.moveRight>this.sl.length-1){
+						this.moveRight=0;
+					}
+					if(this.moveLeft<0){
+						this.moveLeft=this.sl.length-1;
+					}
+				},
+				addLeft:function(){
+					this.sl[this.moveLeft--].left--;
+				},
+				addRight:function(){
+					this.sl[this.moveRight++].left++;
+				},
+				moveTo:function(n) {
+						if(n > this.currentSlide){
+							while(this.currentSlide!=n){
+								this.next();
+							}
+						}
+						if(n < this.currentSlide){
+							while(this.currentSlide!=n){
+								this.prev();
+							}
+						}
+				},
+				autoPlay:function(){
+					this.interval = setInterval(this.next,2000);
+				},
+				styleSlide:function(slide){
+					return {
+						left : slide.left * this.sl.length * this.width + 'px'
+						// background : 'url(' + slide.img + ')'
+					}
+				},
+				callResize:function() {
+					bus.$emit('sizeChange');
+				},
+				resizeSlides:function(){
+					this.animate = false;
+					this.width = this.$refs.slider.offsetWidth;
+					this.sliderPos = -this.step * this.width;
+					var self = this;
+					setTimeout(function(){
+						self.animate = true;
+					},10);
 				}
-
-			});
-
-			function MoveNext() {
-				if(triggerSlide<slidesArr.length-1){
-					triggerSlide++;
-					MoveSlide("next");
-				} else {
-					MoveRightReverse();
+			},
+			computed:{	
+				sliderLeft:function(){
+					return {left : this.sliderPos + 'px'}
 				}
-
+			},
+			mounted(){
+				this.width = this.$refs.slider.offsetWidth;
+				window.onresize = (event) => {
+				    this.callResize();
+			  	};		
+			},
+			created(){
+				bus.$on('sizeChange',this.resizeSlides)
 			}
+		})
 
-			nextBtn.click(function() {
-				stopAutoPlay();
-				MoveNext();
-			});
-
-			function startAutoPlay() {
-				autoPlay = setInterval(MoveNext,1000);
+		new Vue({
+			el:'#slider-app',
+			data:{
+				slides:[
+					{
+						text:1,
+						left:0,
+						img:'https://mota.ru/upload/resize/1600/900/upload/wallpapers/source/2016/05/16/14/05/48570/mota.ru_2016051206-37f.jpg'
+					},
+					{
+						text:2,
+						left:0,
+						img:'https://million-wallpapers.ru/wallpapers/4/65/13059707637550926239.jpg'
+					},
+					{
+						text:3,
+						left:0,
+						img:'https://widewp.ru/images/food/212.jpg'
+					}
+				]
 			}
-			startAutoPlay();
-			var _handleVisibilityChange = function () {
-              if (document.visibilityState === "hidden") {
-               clearInterval(autoPlay);
-              } else {
-               startAutoPlay();
-              }
-            }
-            document.addEventListener('visibilitychange', _handleVisibilityChange, false);
-
-            
-            $(document).on('scroll', function() {
-                height = slider.offset().top + slider.height();
-                if($(window).scrollTop()>height) {
-                    clearInterval(autoPlay);
-                    enubled = true;
-                }
-                else if($(window).scrollTop()<height) {
-                    if(enubled) startAutoPlay();
-                    enubled = false;
-                }
-            });
-			}
-		});
-	</script>
+		})
+	</script>	
 </body>
 </html>
