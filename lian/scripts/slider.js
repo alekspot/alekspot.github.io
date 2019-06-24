@@ -150,7 +150,7 @@ function DoSlider() {
             }
 
             prevBtn.click(function() {
-                stopAutoPlay();
+                //stopAutoPlay();
                 if(triggerSlide>0){
                     triggerSlide--;
                     MoveSlide("prev");
@@ -171,7 +171,7 @@ function DoSlider() {
             }
 
             nextBtn.click(function() {
-                stopAutoPlay();
+               // stopAutoPlay();
                 MoveNext();
             });
 
@@ -185,7 +185,7 @@ function DoSlider() {
               if (document.visibilityState === "hidden") {
                clearInterval(autoPlay);
               } else {
-               startAutoPlay();
+               //startAutoPlay();
               }
             }
             document.addEventListener('visibilitychange', _handleVisibilityChange, false);
@@ -198,7 +198,7 @@ function DoSlider() {
                     enubled = true;
                 }
                 else if($(window).scrollTop()<height) {
-                    if(enubled) startAutoPlay();
+                   // if(enubled) startAutoPlay();
                     enubled = false;
                 }
             });
