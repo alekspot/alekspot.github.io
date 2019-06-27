@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./build/css/style.css">
+	<link rel="stylesheet" href="./fonts/font.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+	<script src="jquery-3.3.1.min.js"></script>
+</head>
+<body class="body">
+
+		<p class="page__bg_text">SOUND <br>EDIO</p>
+		<header class="header">
+
+				<a class="header__logo" href="#">
+					Sound <span class="header__logo_span">store</span>
+				</a>
+
+
+
+			<div class="header__nav">
+				<ul class="header__list">
+					<li class="header__item"><button class="header__search" type="submit"><i class="fas fa-search"></i></button></li>
+					<li class="header__item"><a href="#" class="header__cart">Cart</a></li>
+					<li class="header__item"><a href="#" class="header__fav">Favorite</a></li>
+				</ul>
+				<div class="menu-icon">
+					<div class="dot"></div>
+					<div class="dot"></div>
+					<div class="dot"></div>
+					<div class="dot"></div>
+					<div class="dot"></div>
+					<div class="dot"></div>
+					<div class="dot"></div>
+					<div class="dot"></div>
+					<div class="dot"></div>
+				</div>
+				<script>
+					$('.menu-icon').click(function(){
+						$(this).toggleClass('clicked');
+					});
+				</script>
+			</div>
+		</header>
+		<div class="content">
+
+			<main class="main">
+
+			<div class="good">
+				<div class="colors">
+					<p class="colors__label">Available <br><span class="colors__label_big">colours</span></p>
+					<div class="colors__chooser">
+						<div class="color color_1"></div>
+						<div class="color color_2"></div>
+						<div class="color color_3"></div>
+						<div class="color color_4"></div>
+						<div class="color color_5"></div>
+					</div>
+				</div>
+
+				<!--<div class="good__discription">-->
+					<div class="good__wrap">
+
+						<div class="good__images">
+							<div class="good__title">Select Product image to display:</div>
+							<ul class="good__list">
+								<li class="good__item good__item_active"><img class="good__picture"src="build/img/i0.png" alt=""></li>
+								<li class="good__item"><img class="good__picture"src="build/img/i1.png" alt=""></li>
+								<li class="good__item"><img class="good__picture"src="build/img/i2.png" alt=""></li>
+								<li class="good__item"><img class="good__picture"src="build/img/i3.png" alt=""></li>
+							</ul>
+						</div>
+						<div class="good__name">
+							<p class="good__text good__text_top">BLU</p>
+							<p class="good__text good__text_bot">EDIO</p>
+						</div>
+					</div>
+					<div class="good__img">
+						<img src="build/img/headphone.png" alt="">
+					</div>
+				<!--</div>-->
+
+
+			</div>
+			<div class="headphones">
+				<div class="headphone">
+					<img class="headphone__img" src="build/img/1.png" alt="">
+				</div>
+				<div class="headphone">
+					<img class="headphone__img" src="build/img/2.png" alt="">
+				</div>
+				<div class="headphone">
+					<img class="headphone__img" src="build/img/5.png" alt="">
+				</div>
+				<div class="headphone">
+					<img class="headphone__img" src="build/img/4.png" alt="">
+				</div>
+				<div class="headphone headphone_last">
+					<img class="headphone__img" src="build/img/3.png" alt="">
+				</div>
+			</div>
+			</main>
+		</div>
+	<footer class="footer">
+		<div class="footer__wrap">
+			<div class="pay">
+				<h2 class="footer__title footer__title_pay">Payment Options</h2>
+				<img class="pay_img" src="build/img/money.png" alt="">
+			</div>
+			<div class="featuers">
+				<h2 class="footer__title footer__title_featuers">Featuers</h2>
+				<ul class="featuers__list">
+					<li class="featuers__item">3D Stereo Music Sound</li>
+					<li class="featuers__item">Air Control Music String</li>
+					<li class="featuers__item">24 BIT Music Transmit</li>
+					<li class="featuers__item">Line in/Line out</li>
+					<li class="featuers__item">Compatible with Android/iPhones</li>
+					<li class="featuers__item">57mm Ultra Big Drive Units for Bass</li>
+				</ul>
+			</div>
+			<a class="footer__favorite" href=""><img src="build/img/ff.png" alt=""></a>
+			<button class="footer__button">ADD TO CART</button>
+		</div>
+
+	</footer>
+</body>
+</html>
