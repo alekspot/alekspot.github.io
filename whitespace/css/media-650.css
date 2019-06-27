@@ -1,0 +1,71 @@
+@charset "utf-8";
+
+@media (max-width: 650px){
+
+	.logo-searh {
+		display: block;
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+	.logo {
+		display: block;
+		text-align: center;
+	}
+	.logo-img {
+		display: inline-block;
+	}
+	.search {
+		margin-top: 10px;
+		display: flex;
+		justify-content: center;
+	}
+	.btn-search {
+		display: inline-block;
+	}
+	.menu {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.menu li {
+		min-width: 25%;
+		max-width: 25%;
+		border: none;
+	}
+	.menu a {
+		padding: 12px;
+	}
+	.start {
+		flex: 1 60%;
+	}
+	
+	.tab {
+		min-width: 200px;
+	}
+	
+	.about-img {
+		width: 250px;
+		height: 138px;
+	}
+	
+	.members-of-team {
+		display: block;
+	}
+	
+	.wrap-member {
+	display: flex;
+	justify-content: space-around;
+	}
+	
+	.wrap-projects{
+	flex-wrap: wrap;
+}
+	.project-group {
+		width: 50%;
+		text-align: center;
+	}
+	.last-project {
+	width: 50%;
+	text-align: center
+	}
+}

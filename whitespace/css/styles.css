@@ -1,0 +1,764 @@
+*,*::after,*::before{
+	box-sizing: border-box;
+}
+/***************************       Cammon         ******************************/ 
+h1,h2,h3,h4,p,ul{
+	margin: 0;
+}
+
+header,.content{
+	/*background: #F7F7F7;*/
+	background: url("../img/Background-img.png");
+}
+
+footer {
+	background: #7e7e7e;
+}
+
+.center {
+	width: 100%;
+	max-width:960px;
+	margin: 0 auto;
+}
+/***************************       HEADER         ******************************/
+
+/***************************       logo         ******************************/
+.logo-searh {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding:24px 0 ;
+}
+
+.logo-img {
+	display: block;
+}
+/***************************       menu         ******************************/
+.menu {
+	display: flex;
+	justify-content: space-between;
+	list-style: none;
+	text-transform: uppercase;
+	margin: 0;
+	padding: 0;
+	font-family:"Oswald Regular";
+	font-size: 14px;
+}
+
+.menu li {
+	min-width: 12.5%;
+	border-bottom: solid 1px #e7e7e7;
+	border-top: solid 1px #e7e7e7;
+}
+
+.menu li:last-child {
+	border-right: solid 1px #e7e7e7;
+}
+
+.menu li:first-child {
+	border-left: solid 1px #e7e7e7;
+}
+
+.menu li.current-li {
+	border: none;
+}
+
+.menu a {
+	display: block;
+	text-decoration: none;
+	text-align: center;
+	padding: 11px 0 ;
+	background: #f3f3f3;
+	color:#b2b2b2;
+	
+}
+
+.menu .current-a {
+	background:#29c5e6;
+	border:none;
+	padding: 12px 0 ;
+	color:#fff;
+}
+
+/***************************      search         ******************************/
+
+.search {
+	display: flex;
+}
+
+.search-text {
+	height: 32px;
+	border: solid 1px #e7e7e7;
+	border-right: none;
+	padding-left: 10px;
+	padding-right: 4px;
+	background: #f3f3f3;
+	color:#b2b2b2;
+	font-family: "Tahoma";
+	font-size: 12px;
+}
+
+.btn-search {
+	display:block;
+	background: #29c5e6;
+	padding: 7px 13px;
+	text-decoration: none;
+	font-family:"Oswald Regular";
+	text-transform: uppercase;
+	color:#fff;
+}
+
+/***************************       FOOTER         ******************************/
+.footer {
+	display: flex;
+	justify-content: space-between;	
+	padding-top: 13px;
+}
+
+footer div {
+	margin: 0 10px;
+}
+
+footer h3 {
+	font-family:"Oswald Regular";
+	text-transform: uppercase;
+	color:#f6f6f6;
+	font-size: 14px;
+	border-bottom: solid 1px #919191;
+	padding-bottom:3px ;
+}
+/***************************       twitter feed (flex item 1)  ******************************/
+
+.twitter-feed {
+	width: 294px;
+}
+
+.twitter-feed p {
+	font-family: "Tahoma";
+	font-size: 11px;
+	color: #dbdbdb;
+	margin-top: 3.5px;
+	margin-bottom: 21.5px;
+}
+
+.twitter-feed a {
+	font-family: "Tahoma";
+	font-size: 11px;
+	color: #b0abab;
+}
+
+/***************************       sitem map (flex item 2)        ******************************/
+.site-map {
+	max-width: 13.54166666666667%;
+}
+
+.footer-menu {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	list-style: none;
+	padding: 0;
+	margin-top: 4px;
+}
+
+.footer-menu li {
+	flex:50px;
+}
+
+.footer-menu a {
+	text-decoration: none;
+	font-family: "Tahoma";
+	font-size: 12px;
+	color:#dbdbdb;
+}
+
+/***************************       social (flex item 3)        ******************************/
+.social {
+	min-width: 13.54166666666667%;
+}
+
+.soc-top {
+	display: flex;
+	max-width: 110px;
+	margin: 11px 0 8px;
+	justify-content: space-between
+}
+
+.soc-bottom {
+	display: flex;
+	max-width: 110px;
+	justify-content: space-between;
+	margin: 0;
+}
+
+.big-soc {
+	height: 30px;
+	width: 30px;
+	background: url("../img/soc.png") no-repeat;
+}
+
+.small-soc {
+	height: 16px;
+	width: 16px;
+	background: url("../img/soc.png") no-repeat;	
+}
+
+.twitter {
+	
+}
+
+.facebook {
+	background-position: -40px 0;
+}
+
+.google {
+	background-position: -80px 0;
+}
+
+.vimeo {
+	background-position: 0 -38px;
+}
+
+.youtube {
+	background-position: -24px -38px;
+}
+
+.flickr {
+	background-position: -48px -38px;
+}
+
+.instagram {
+	background-position: -72px -38px;
+}
+
+.rss {
+	background-position: -96px -38px;
+}
+
+/***********************       footer-logo (flex item 4)        ***************************/
+
+.logo-copy {
+	align-self: center;
+	flex-grow: 1;
+	text-align: right;
+	margin: 0;
+}
+
+.logo-copy p, .logo-copy a {
+	font-family: "Tahoma";
+	font-size: 10px;
+	color:#dbdbdb;
+	margin-bottom: 0;
+}
+
+/*************************          HOMEPAGE content      ********************************/
+
+
+/*************************                 MAIN           ********************************/
+
+.main-h1 {
+	font-size: 42px;
+	color:#5a5a5a;
+	font-weight: 200;
+	text-transform: uppercase;
+}
+
+.main-p {
+	font-size: 20px;
+	color:#acacac;
+}
+
+.main-top {
+	background: #e2e2e2;
+	padding: 40px 40px 172px;
+}
+
+
+.main-bottom {
+	display: flex;
+	justify-content: space-between;
+	text-transform: uppercase;
+	counter-reset: count;
+	background: #f3f3f3;
+	padding:8px 12px 14px;
+	vertical-align: middle;
+	
+}
+
+.tab {
+	font-family:"Oswald Light";
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #8f8f8f;
+	font-family:"Oswald Light";
+	display: block;
+	font-size: 18px;
+	line-height: 1.6;
+}
+
+.tab::before{
+	content: counter(count);
+	counter-increment: count;
+	background:#8F8F8F; 
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	color:#fff;
+	font-size: 16px; 
+	text-align: center;
+	margin-right: 12px;
+}
+
+.current-tab {
+	color:#29c5e6;
+}
+
+.current-tab::before{
+	background:#36C9E8;
+}
+
+/*************************               SECTION           ********************************/
+
+/*************************             dashed container           ********************************/
+article {
+	margin: 32px 10px 0;
+}
+
+.start {
+	flex:1 45%;
+}
+
+.middle {
+	width: 300px;
+}
+
+
+
+.dashed {
+	display: flex;
+	align-items: center;
+}
+
+.dashed, .dashed h2 {
+	font-size: 14px;
+	text-transform: uppercase;
+	font-family:"Oswald Regular";
+	color: #7e7e7e;
+	letter-spacing: 1px;
+}
+
+.dash-block {
+	flex-grow: 1;
+	background: url("../img/Title pattern.png") no-repeat;
+	height: 15px;
+	margin-left: 9px;
+}
+
+.blue-quad {
+	background: #29c5e6;
+	width: 1em;
+	height: 1em;
+	margin-right:5px;
+}
+
+.wrap-art {
+	display: flex;
+	align-items: flex-start;
+	margin-top: 14px;
+}
+
+/*************************             article img          ********************************/
+
+.img {
+	display:block;
+	background: #e2e2e2;
+	border:solid 1px #fff;
+	border:solid 1px #fff;
+	outline: solid 1px #c9c9c9;
+}
+
+.text-wrap {
+	text-align: justify;
+}
+
+.team .text-wrap {
+	text-align: justify;
+	padding-left: 10px;
+}
+.start .text-wrap {
+	text-align: justify;
+	padding-left: 18px;
+}
+
+.team-discription h4 {
+	color:#8B8B8B;
+	font-family: "Tahoma";
+	font-size: 11px;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+}
+
+section p {
+	font-family: "Tahoma";
+	color:#979797;
+	font-size: 12px;
+	margin: 20px 0;
+	line-height: 1.3;
+}
+
+.text-wrap b {
+	font-family: "Tahoma";
+	font-size: 12px;
+	color:#525252;
+}
+
+/*************************               ABOUT US           ********************************/
+
+
+.team-discription p {
+	margin-bottom: 0;
+	font-size: 11px;
+	text-align: justify;
+}
+
+.text-wrap a {
+	font-size: 12px;
+	color:#8B8B8B;
+	font-family: "Tahoma";
+	font-size: 11px;
+}
+
+.clients {
+	background: url("../img/clients.png") no-repeat;
+	background-size: cover;
+	padding: 4.35%; 
+	margin-left: 20px;
+	margin-top: 20px;
+}
+
+.logo-copy img {
+	max-width: 100%;
+}
+
+.logo-footer {
+	display: block;	
+}
+
+.logo-footer img {
+	max-width: 100%;
+}
+
+/*************************               ABOUT US (page 2)          ********************************/
+.dash-block-left,.dash-block-right {
+	background: url("../img/Big Title pattern.png") no-repeat;
+	background-size: cover;
+	height: 35px;
+}
+
+.h1-dash {
+	display: flex;
+	text-transform: uppercase;
+	font-family:"Oswald Regular";
+	align-items: center;
+	padding: 28px 0;
+}
+
+.h1-dash h1 {
+	font-size: 40px;
+	color:#7E7E7E;
+	font-weight: 400;
+	padding: 0 10px;
+}
+
+.dash-block-right {
+	flex: 1 0;
+}
+
+.dash-block-left {
+	flex: 0 0 2.8%;
+}
+/*************************               aside           ********************************/
+aside .tab {
+	display: block;
+	font-size: 14px;
+	background: #F3F3F3;
+	border: solid 1px #E7E7E7;
+	border-bottom: none;
+	padding: 8.5px 0;
+}
+
+aside .tab::before {
+	content: "";
+	width: 8px;
+	height: 8px;
+	position: relative;
+    bottom: 2px;
+	margin-left:10px;
+}
+
+.tab-wrap :last-child {
+	border-bottom: solid 1px #E7E7E7;
+}
+
+.left-and-right {
+	display: flex;
+}
+
+.left {
+	flex-grow: 1;
+	flex-basis: 250px;
+}
+
+aside h3 {
+	background: #29C5E6;
+	margin-top: 30px;
+	font-family:"Oswald Regular";
+	color: #fff;
+	font-size: 14px;
+	padding: 12px 10px;
+}
+
+
+
+
+/*************************              main           ********************************/
+.index-main {
+	padding-top: 30px;
+}
+
+main h2 {
+	font-style: italic;
+	font-weight: 100;
+	text-transform: uppercase;
+	font-size: 33px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 15px;
+	color:#FFFFFF;
+}
+
+
+
+.main-text p {
+	font-family: "Tahoma";
+	font-size: 12px;
+	margin: 26px 0;
+	line-height: 1.5;
+}
+
+.main-text :first-child{
+	margin: 20px 0;
+}
+.members-of-team {
+	display: flex;
+	padding: 0 1px;
+	justify-content: space-between;
+}
+
+.member {
+	font-family:"Oswald Light";
+	padding-top: 20px;
+	
+}
+
+.member-photo {
+	width: 99px;
+	height: 99px;
+	display: block;
+}
+.blue-h2 {
+	background: #29C5E6;
+	font-family:"Oswald Light";
+	color:#fff;
+	font-weight: 100;
+	font-size: 30px;
+	padding: 7px 8px;
+	text-transform: uppercase;
+}
+
+.member-name {
+	font-size: 16px;
+	padding-top: 8px;
+	color:#8F8F8F;
+	margin: 0;
+	font-family:"Oswald Light";
+}
+
+.member-position {
+	font-size: 14px;
+	color:#29C5E6;
+	margin: 0px;
+	font-family:"Oswald Light";
+}
+
+.wrap-project {
+	display: flex;
+}
+
+.wrap-projects {
+	display: flex;
+	justify-content: space-between;
+	padding: 0px 1px 0;
+	
+}
+
+.aside-menu {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.project-img {
+	display: inline-block;
+	padding-top: 100px;
+	padding-left: 100px;
+	padding: 48px 48px;
+	
+}
+
+.project-name {
+	font-size: 16px;
+	font-family:"Oswald Light";
+	padding-top: 5px;
+	margin: 0;
+	
+}
+
+.content {
+	padding-bottom: 50px;
+}
+
+.screenshot-name {
+	text-align: center;
+	margin: 0;
+	padding: 7px 0 18px;
+	text-transform: uppercase;
+	font-family:"Oswald Light";
+	
+}
+
+
+
+
+
+.office-img {
+	display: block;
+	border:solid 10px #fff;
+	width: 248px;
+	height: 200px
+}
+
+.offices {
+	width: 250px;
+}
+
+.wrap-office-img {
+		padding: 0 1px 1px;
+		
+}
+
+.about-img, .scree {
+	display: block;
+	height: 180px;
+	width: 326px;
+}
+
+
+.wrap-menu-offices {
+	width: 250px;
+}
+
+.wrap-about-img {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 32px;
+	align-items: flex-start;
+}
+
+.right {
+	flex-basis: 680px;
+}
+
+
+
+.article-img-big {
+	padding: 68px;
+}
+
+
+.art-text {
+	margin-top: 0;
+	margin-bottom: 18px;
+}
+
+.team .art-text {
+	font-size: 11px;
+	margin-bottom: 0;
+}
+
+.article-img-small {
+	padding: 18px;
+}
+
+.team-name {
+	font-family: "Tahoma";
+	font-size: 11px;
+	color: #525252;
+	text-transform: uppercase;
+}
+.about-main {
+	background: #29C5E6;
+	
+}
+
+.about-main-p {
+	text-align: right;
+	padding: 13px 36px 13px;
+	font-family:"Oswald Light";
+	color: #1D8EA6;
+}
+
+.aside-podmenu {
+	list-style: none;
+	text-transform: uppercase;
+	padding: 0;
+	display: none;
+}
+.podmenu-a {
+	text-decoration: none;
+	font-family:"Oswald Light";
+	display: block;
+	background: #E7E7E7;
+	color: #9B9B9B;
+	font-size: 12px;
+	padding: 10px 0 8px 32px;
+}
+
+.podmenu-a:hover {
+	background: #EEEEEE;
+	color:#29C5E6;
+}
+.with-podmenu:hover .aside-podmenu {
+	display: block;
+}
+
+
+
+
+.wrap-img {
+	
+}
+
+
+
+.wrap-start {
+	display: flex;
+}
+
+.wrap-middle {
+	display: flex;
+}
+
+.project {
+	padding-top: 20px;
+}
