@@ -1,0 +1,93 @@
+/*  COLORS
+========================================= */
+/*  MIXINS
+========================================= */
+/*  RESET
+========================================= */
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2c3e50;
+}
+
+/*  MENU ICON
+========================================= */
+.menu-icon {
+  transform: translate(0,0);
+  width: 50px;
+  height: 50px;
+}
+.menu-icon .dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background-color: #00eaff;
+  border-radius: 10px;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -webkit-transition: margin 0.4s ease 0.4s, width 0.4s ease;
+  -moz-transition: margin 0.4s ease 0.4s, width 0.4s ease;
+  -o-transition: margin 0.4s ease 0.4s, width 0.4s ease;
+  transition: margin 0.4s ease 0.4s, width 0.4s ease;
+}
+.menu-icon .dot:nth-of-type(1) {
+  margin-top: -8px;
+  margin-left: -8px;
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+  -moz-transform: translate(-50%, -50%) rotate(45deg);
+  -ms-transform: translate(-50%, -50%) rotate(45deg);
+  -o-transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.menu-icon .dot:nth-of-type(2) {
+  margin-top: -8px;
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+  -moz-transform: translate(-50%, -50%) rotate(-45deg);
+  -ms-transform: translate(-50%, -50%) rotate(-45deg);
+  -o-transform: translate(-50%, -50%) rotate(-45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+.menu-icon .dot:nth-of-type(3) {
+  margin-top: -8px;
+  margin-left: 8px;
+}
+.menu-icon .dot:nth-of-type(4) {
+  margin-left: -8px;
+}
+.menu-icon .dot:nth-of-type(6) {
+  margin-left: 8px;
+}
+.menu-icon .dot:nth-of-type(7) {
+  margin-top: 8px;
+  margin-left: -8px;
+}
+.menu-icon .dot:nth-of-type(8) {
+  margin-top: 8px;
+}
+.menu-icon .dot:nth-of-type(9) {
+  margin-top: 8px;
+  margin-left: 8px;
+}
+.menu-icon.clicked .dot {
+  -webkit-transition: margin 0.4s ease, width 0.4s ease 0.4s;
+  -moz-transition: margin 0.4s ease, width 0.4s ease 0.4s;
+  -o-transition: margin 0.4s ease, width 0.4s ease 0.4s;
+  transition: margin 0.4s ease, width 0.4s ease 0.4s;
+  margin-left: 0;
+  margin-top: 0;
+}
+.menu-icon.clicked .dot:nth-of-type(1) {
+  width: 30px;
+}
+.menu-icon.clicked .dot:nth-of-type(2) {
+  width: 30px;
+}
