@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор стоимости услуг</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .sale {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="discounts">
+        <h1 class="my-4">Выберите товары</h1>
+        <div class="row">
+            <div class="col-sm-7">
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Название товара</th>
+                            <th>Макс.</th>
+                            <th>Сред.</th>
+                            <th>Мин.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(course,index) in courses">
+                            <td>{{course.title}}</td>
+                            <td 
+                            @click="choose(course,price,index)"
+                            v-for="price in course.prices"
+                            :class="activeClass(course,price)">
+                                {{price}}
+                            </td>
+                        
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-5">
+                <div class="card-body">
+                    <template v-if="selected.length > 0">
+                        <div class="h5 mb-3">Корзина</div>
+                        <table class="table table-bordered">
+                            <tbody>
+                                <tr v-for="course in selected">
+                                    <td>{{course.title}}</td>
+                                    <td :class="oldPriceClass(course)">{{course.price}}</td>
+                                    <td>{{course.newPrice}}</td>
+                                </tr>
+                              
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th class="text-right" colspan="2">
+                                        Итого
+                                    </th>
+                                    <td>
+                                        {{result}}
+                                    </td>
+                                </tr>
+                            </tfoot>
+
+                        </table>
+
+                        <div class="checkbox">
+                            <label><input 
+                                @change="fixPrice"
+                                v-model="nootebook" 
+                                :true-value="true"
+                                :false-value="false"
+                                type="checkbox"> Оплата наличными</label>
+                        </div>
+                        <div class="checkbox">
+                            <label class="checkbox">
+                                <input
+                                @change="fixPrice"
+                                v-model="friend" 
+                                :true-value="true"
+                                :false-value="false"
+                                type="checkbox">С другом дешевле</label>
+                        </div>
+                    </template>
+                    <div v-else class="alert alert-info">Товары не выбраны</div>
+                </div>
+            </div>
+        </div>
+        <div v-if="!usePromo" class="input-group mb-3">
+            
+            <input v-model="promo" type="text" class="form-control" placeholder="Введите промокод LETO или STUDENT" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <div class="input-group-append">
+              <button @click="setPromo" class="btn btn-outline-secondary" type="button" id="button-addon2">Получить скидку</button>
+            </div>
+          </div>
+          <template v-if="show">
+            <p v-if="usePromo">Действует скидка по промокоду {{this.textPromo}}</p>
+            <p v-else>Вы ввели недействующий промокод</p>
+          </template>
+            
+         
+          
+    </div>
+    <script src="./calc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+</body>
+</html>
