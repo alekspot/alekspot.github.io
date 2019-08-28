@@ -71,7 +71,7 @@
                                 v-model="nootebook" 
                                 :true-value="true"
                                 :false-value="false"
-                                type="checkbox"> Оплата наличными</label>
+                                type="checkbox"> Оплата наличными*</label>
                         </div>
                         <div class="checkbox">
                             <label class="checkbox">
@@ -82,6 +82,7 @@
                                 :false-value="false"
                                 type="checkbox">С другом дешевле</label>
                         </div>
+                        <p>*Скидка "Оплата наличными" не предоставляется на товары с минимальной стоимостью</p>
                     </template>
                     <div v-else class="alert alert-info">Товары не выбраны</div>
                 </div>
