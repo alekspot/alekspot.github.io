@@ -74,44 +74,44 @@ window.addEventListener('load',function(){
         methods: {
             //добавить поменять удалить
             choose(course,price,index){
-                if(this.check(index)){  //если есть товар уже в списке
+                if(this.check(index)){  //если товар уже в списке
                     
-                    var id = this.pushId.indexOf(index); //ищем индекс товара по индексу в списке выбранных
+                    let id = this.pushId.indexOf(index); //ищем индекс товара по индексу в списке выбранных
 
                     if(this.selected[id].price == price && this.selected[id].title == course.title ){ //удаляем
 
                         this.selected.splice(id,1);
                         this.pushId.splice(id,1);
+                        this.fixPrice();
 
-                        this.fixPrice()
                     } else {                                                                        
                         this.selected[id].price = price;   // или меняем цену
-                        this.fixPrice()
+                        this.fixPrice();
                     }
                    
-                } else this.add(course,price,index) //если нету товара то добавляем
+                } else this.addGood(course,price,index) //если нету товара то добавляем
                 
             },
-            add(course,price,index){
+            addGood(course,price,index){
                 let obj = { title:course.title, price:price, newPrice: price ,minPrice:course.prices.minimum}
                 this.selected.push(obj);
                 this.pushId.push(index);
                 this.fixPrice(); 
             },
-            fixPrice(){
+            fixPrice(){ //применяет скидки к товарам
                 this.sortPrice(); 
                 this.useDiscount();
                 this.refresh();
             },
-            findPrice(course){
-                for(let i=0;i < this.priceArr.length;i++){
-                    if(this.priceArr[i].course == course) return i;
-                }
+            findIdGood(course){
+                return this.priceArr.findIndex(function(item){
+                    return item.course == course
+                })
             },
             refresh(){
                 let sum = 0;
                 for(let value of this.selected){
-                   let needId = this.findPrice(value.title);
+                   let needId = this.findIdGood(value.title);
                    value.newPrice = this.priceArr[needId].price;
                    sum += value.newPrice;
                 }
@@ -134,7 +134,7 @@ window.addEventListener('load',function(){
             oldPriceClass(course){
                 return {"sale" : course.price!==course.newPrice}
             },
-            useDiscount(){
+            useDiscount(){  //логика применения скидок
                 if(this.selected.length>0){
                              
                     //Посдедний элемент в сортированном массиве прайсов всегда с максимальной ценой
@@ -142,7 +142,7 @@ window.addEventListener('load',function(){
                     let maxPrice = this.priceArr[last].startPrice;
                     let minPrice = this.priceArr[last].minPrice;
 
-                    for(let i = 0; i < this.priceArr.length; i++){
+                    for(let i = 0; i < this.priceArr.length; i++){  //скидка при выборе нескольких товаров
                         if(i==1){
                             this.priceArr[i].price = this.priceArr[i].price - this.priceArr[i].price * 0.1;
                         }
@@ -154,14 +154,14 @@ window.addEventListener('load',function(){
                         }
                     }
                     
-                    if(this.friend){
+                    if(this.friend){   //скидка с другом
                         this.priceArr[last].price = this.priceArr[last].price-this.priceArr[last].price*0.1;
                     }
-                    if(this.nootebook && maxPrice!==minPrice){
+                    if(this.nootebook && maxPrice!==minPrice){  //скидка при оплате наличными
                         this.priceArr[last].price = this.priceArr[last].price-this.priceArr[last].price*0.1;
                     }
-                    if(this.usePromo){
-                    this.priceArr[last].price = this.priceArr[last].price-this.priceArr[last].price * this.promoDiscount; 
+                    if(this.usePromo){ //скидка с использованным промокодом
+                        this.priceArr[last].price = this.priceArr[last].price-this.priceArr[last].price * this.promoDiscount; 
                     }
                 }  
             },
