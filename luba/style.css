@@ -1,0 +1,21 @@
+.img {
+height: 200px;
+}
+.table{
+    border-collapse: collapse;
+    margin-top: 40px;
+}
+td {
+    border: solid 1px;
+    padding: 20px 20px 5px;
+    text-align: end;
+}
+
+.kol{
+    width: 200px;
+    margin-left: 300px;
+}
+.date {
+    font-size: 30px;
+    margin: 90px 100px 0 300px;
+}
